@@ -1,0 +1,845 @@
+/*-----TELA DE LOGIN-----*/
+/*Background*/
+body .container .back {
+    background: rgba(220,220,200,0.2);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: -16px;
+    margin-bottom: -23px;
+}
+/*Fim background*/
+/*Tela de login*/
+.form-login {
+    width: 50%;
+    margin: auto;
+    padding: 50px;
+    border: solid 1px rgba(0,0,0,0.3);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: #fff;
+    box-shadow: 2px 2px 2px #696969;
+}
+.form-login h3 {
+    padding-top: 16px;
+}
+.form-login .header-form {
+    width: 100%;
+    background: #dcdcdc;
+    padding: 7px;
+}
+.form-login .header-form img {
+    width: 86px;
+    height: auto;
+}
+.form-login .login .col-md-12 {
+    background: rgba(220,220,200,0.2);
+}
+.form-login #login-sistema {
+    display: block;
+    text-align: right;
+}
+.form-login #nome:focus,
+.form-login #senha-login:focus  {
+    border: solid 1px #4D4DFF;
+    box-shadow: 2px 2px 4px #4D4DFF;
+}
+.form-login #login-sistema a,
+.form-login #nome::placeholder,
+.form-login #senha::placeholder {
+    font-size: 18px;
+}
+.form-login #login-sistema p {
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+.form-login #login-sistema .titulos {
+    text-align: initial;
+    font-size: 18px;
+    font-weight: 500;
+}
+.form-login #nome,
+.form-login #senha-login {
+    width: 100%;
+    margin-bottom: 0px;
+    outline: none;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding: 10px;
+    box-shadow: 2px 2px 4px grey;
+}
+.form-login #entrar {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    width: 133px;
+    color: #fff;
+    text-transform: uppercase;
+    background: rgba(0,128,0,0.9);
+    box-shadow: 2px 2px 2px #696969;
+    margin-bottom: 23px;
+    cursor: pointer;
+}
+.form-login .register-new-user,
+.form-login .forgot-password {
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+}
+/*Fim tela de login*/
+/*Cadastro de usuário*/
+.form-register-user {
+    display: none;
+    width: 50%;
+    margin: auto;
+    padding: 50px;
+    border: solid 1px rgba(0,0,0,0.3);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: #fff;
+    box-shadow: 2px 2px 2px #696969;
+}
+.form-register-user h3 {
+    padding-top: 16px;
+}
+.form-register-user .titulos {
+    text-align: initial;
+}
+.form-register-user .header-form {
+    width: 100%;
+    background: #dcdcdc;
+    padding: 7px;
+}
+.form-register-user .header-form img {
+    width: 86px;
+    height: auto;
+}
+.form-register-user .cadas .col-md-12 {
+    background: rgba(220,220,200,0.2);
+}
+
+.form-register-user #register-user {
+    display: block;
+    text-align: right;
+}
+.form-register-user #register-user p {
+    margin-top: 0px;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+.form-register-user input, .form-register-user select {
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding: 10px;
+    font-size: 18px;
+    box-shadow: 2px 2px 4px grey;
+}
+.form-register-user input:focus, .form-register-user select:focus {
+    border: solid 1px #4D4DFF;
+    box-shadow: 2px 2px 4px #4D4DFF;
+}
+.form-register-user input {
+    font-size: 18px;
+}
+.form-register-user #cadastrar, .form-register-user #cancelar{
+    border-radius: 5px;
+    border: none;    
+    color: #fff;
+    text-transform: uppercase;    
+    box-shadow: 2px 2px 2px #696969;    
+    margin-bottom: 23px;
+    cursor: pointer;
+}
+.form-register-user #cadastrar {
+    padding: 10px;
+    width: 133px;
+    background: rgba(0,128,0,0.9);
+}
+.form-register-user #cancelar {
+    padding: 11px 24px 13px;
+    width: 30%;
+    background: rgba(255,0,0,0.8);
+}
+.form-register-user #register-user a {
+    text-decoration: none;
+}
+.error-message {
+    display: none;
+    color: red;
+    font-size: 20px;
+    font-style: italic; 
+}
+/*Fim cadastro de usuário*/
+/*Nova senha*/
+.form-forgot-password {
+    display: none;
+    width: 50%;
+    margin: auto;
+    padding: 50px;
+    border: solid 1px rgba(0,0,0,0.3);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: #fff;
+    box-shadow: 2px 2px 2px #696969;
+}
+.form-forgot-password h3 {
+    padding-top: 16px;
+}
+.form-forgot-password .header-form {
+    width: 100%;
+    background: #dcdcdc;
+    padding: 7px;
+}
+.form-forgot-password .header-form img {
+    width: 86px;
+    height: auto;
+}
+.form-forgot-password .col-md-12 {
+    background: rgba(220,220,200,0.2);
+}
+.form-forgot-password #senha-sistema {
+    display: block;
+    text-align: right;
+}
+.form-forgot-password #senha-sistema a {
+    font-size: 18px;
+    text-decoration: none;
+}
+.form-forgot-password #senha-sistema p {
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+.form-forgot-password #senha-sistema .titulos {
+    font-weight: 500;
+    text-align: initial;
+}
+.form-forgot-password #resposta-secreta,
+.form-forgot-password #email-usuario,
+.form-forgot-password #select-options {
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding: 10px;
+    box-shadow: 2px 2px 4px grey;
+}
+.form-forgot-password #resposta-secreta:focus,
+.form-forgot-password #email-usuario:focus,
+.form-forgot-password #select-options:focus {
+    border: solid 1px #4D4DFF;
+    box-shadow: 2px 2px 4px #4D4DFF;
+}
+.form-forgot-password #resposta-secreta::placeholder,
+.form-forgot-password #email-usuario::placeholder,
+.form-forgot-password #select-options::placeholder {
+    font-size: 18px;
+}
+.form-forgot-password #recuperar-senha {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    width: 133px;
+    color: #fff;
+    text-transform: uppercase;
+    background: rgba(0,128,0,0.9);
+    box-shadow: 2px 2px 2px #696969;
+    margin-bottom: 23px;
+    cursor: pointer;
+}
+.form-forgot-password #cancelar {
+    border-radius: 5px;
+    border: none;
+    padding-top: 9px;
+    padding-bottom: 12px;
+    padding-left: 22px;
+    padding-right: 22px;
+    width: 30%;
+    color: #fff;
+    text-transform: uppercase;
+    background: rgba(255,0,0,0.8);
+    box-shadow: 2px 2px 2px #696969;
+    margin-bottom: 23px;
+    cursor: pointer;
+}
+/*Fim nova senha*/
+/*-----FIM TELA DE LOGIN-----*/
+
+/*-----HEADER-----*/
+header .row {
+    border-top: solid 5px #000;
+    margin-top: 24px;
+}
+/*Logo*/
+.logo img {
+    width: 170px;
+    height: auto;
+    margin-top: 10px;
+}
+/*Fim logo*/
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.user .user-icon a {
+    text-decoration: none;
+}
+.user-icon img {
+    width: 23px;
+    height: 25px;
+    margin-right: 7px;
+}
+/*Icon user*/
+.user-icon .sair {
+    background: #dcdcdc;
+    padding: 5px;
+    margin-top: 9px;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 2px 2px 2px #a9a9a9;
+    font-weight: 700;
+    color: #191970;
+    text-decoration: none;
+}
+.user-icon .sair:hover {
+    background: #c0c0c0;
+}
+/*Fim icon user*/
+header .navbar {
+    padding-left: 0;
+    padding-right: 0;
+}
+.navbar ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    width: 100%;
+    text-decoration: none;
+    background: #dcdcdc;
+    padding: 0;
+}
+.navbar ul li {
+    width: 167px;
+    text-align: center;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-size: 20px;
+    text-transform: uppercase
+}
+.navbar ul li:hover {
+    background: #c0c0c0;
+}
+.active {
+    color: red;
+    background: #c0c0c0;
+}
+.navbar ul a {
+    color: #191970;
+    font-weight: 700;
+    text-shadow: 2px 2px 2px #a9a9a9;
+    text-decoration: none;
+}
+/*-----FIM HEADER-----*/
+
+/*-----HOME-----*/
+/*Background*/
+body .container {
+    margin-top: -24px;
+}
+body .container .back {
+    background: rgba(220,220,200,0.2);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: -16px;
+    margin-bottom: -23px;
+}
+/*Fim background*/
+.home .page-content p {
+    margin-left: 60px;
+    margin-right: 60px;
+    font-size: 20px;
+}
+.home .page-content h1 {
+    text-align: center;
+}
+.home .button-fatec {
+    text-align: center;
+    margin-top: 42px;
+}
+.home .button-fatec a {
+    text-decoration: none;
+    background: rgba(178,0,0,0.85);
+    color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px #000;
+}
+.home .button-fatec a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+.home .museu-foto {
+    width: 100%;
+    text-align: center;
+}
+.home .museu-foto img {
+    width: 87%;
+    height: auto;
+    margin-top: 40px;
+}
+/*-----FIM HOME-----*/
+
+/*-----TELA DE CADASTRO-----*/
+.cadastrar .aba-1,
+.cadastrar .aba-2,
+.cadastrar .aba-3,
+.cadastrar .aba-4 {
+    display: none;
+}
+.cadastrar .aba-1 h3,
+.cadastrar .aba-2 h3,
+.cadastrar .aba-3 h3,
+.cadastrar .aba-4 h3 {
+    margin-top: 8px;
+}
+.cadastrar .container .register-new-user {
+    background: rgba(220,220,200,0.2);
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: -16px;
+    margin-bottom: -23px;
+}
+/*Top image na tela de cadastro*/
+.cadastrar .imagem img {
+    width: 100%;
+    padding-bottom: 15px;
+}
+/*Fim top image na tela de cadastro*/
+.cadastrar .abas {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+.cadastrar .abas-ativo {
+    background: #c0c0c0;
+    color: red;
+}
+.cadastrar .abas li {
+    text-transform: uppercase;
+    list-style: none;
+    padding: 15px;
+    font-weight: 600;
+    text-shadow: 2px 2px 2px #a9a9a9;
+    font-size: 20px;
+    cursor: pointer;
+}
+.cadastrar #cadastro-1 input:focus,
+.cadastrar #cadastro-2 #secao-id:focus,
+.cadastrar #cadastro-3 #mat:focus,
+.cadastrar #cadastro-4 #cole:focus,
+.cadastrar textarea:focus,
+.cadastrar select:focus {
+    border: solid 1px #4D4DFF;
+    box-shadow: 2px 2px 4px #4D4DFF;
+}
+.cadastrar #cadastro-1 span,
+.cadastrar #cadastro-2 span,
+.cadastrar #cadastro-3 span,
+.cadastrar #cadastro-4 span {
+    text-decoration: none;
+}
+.cadastrar #cadastro-1 p, 
+.cadastrar #cadastro-2 p,
+.cadastrar #cadastro-3 p,
+.cadastrar #cadastro-4 p {
+    margin-top: 0px;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+.cadastrar #codigo,
+.cadastrar #titulo,
+.cadastrar #tombo,
+.cadastrar textarea,
+.cadastrar #cidade,
+.cadastrar select,
+.cadastrar #estado,
+.cadastrar #data,
+.cadastrar #doador,
+.cadastrar #entrada,
+.cadastrar #autor,
+.cadastrar #tecnica,
+.cadastrar #modelo,
+.cadastrar #categoria,
+.cadastrar #colecao,
+.cadastrar #cadastro-2 #secao-id,
+.cadastrar #cadastro-3 #mat,
+.cadastrar #cadastro-4 #cole {
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding: 10px;
+    box-shadow: 2px 2px 4px grey;
+}
+.cadastrar #codigo::placeholder,
+.cadastrar #titulo::placeholder,
+.cadastrar #tombo::placeholder,
+.cadastrar #altura::placeholder,
+.cadastrar #largura::placeholder,
+.cadastrar #profundidade::placeholder,
+.cadastrar textarea::placeholder,
+.cadastrar #cidade::placeholder,
+.cadastrar #select::placeholder,
+.cadastrar #estado::placeholder,
+.cadastrar #data::placeholder,
+.cadastrar #doador::placeholder,
+.cadastrar #entrada::placeholder,
+.cadastrar #autor::placeholder,
+.cadastrar #tecnica::placeholder,
+.cadastrar #modelo::placeholder,
+.cadastrar #categoria::placeholder,
+.cadastrar #imagem::placeholder,
+.cadastrar #mat::placeholder,
+.cadastrar #cole::placeholder,
+.cadastrar #secao-id::placeholder {
+    font-size: 18px;
+}
+.cadastrar #altura,
+.cadastrar #largura {
+    width: 32%;
+    outline: none;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding: 10px;
+    box-shadow: 2px 2px 4px grey;
+}
+.cadastrar #profundidade {
+    width: 32.5%;
+    outline: none;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding: 10px;
+    box-shadow: 2px 2px 4px grey;
+}
+.cadastrar #imagem {
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+.cadastrar .area-imagem-1,
+.cadastrar .area-imagem {
+    display: inline-block;
+    width: 24.5%;
+    height: 228px;
+    text-align: center;
+    outline: none;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding: 10px;
+    background: #fff;
+    box-shadow: 2px 2px 2px #696969;
+}
+.cadastrar .area-imagem {
+    margin-right:5px;
+}
+.cadastrar .button {
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 5px;
+    border-radius: 5px;
+}
+.cadastrar .button img {
+    width: 30px;
+    display: block;
+    cursor: pointer;
+}
+.cadastrar .button #plus,
+.cadastrar .button #minus {
+    display: inline-block;
+}
+/*Botões salvar na tela de cadastro*/
+.cadastrar #salvar,
+.cadastrar #salvar2,
+.cadastrar #salvar3,
+.cadastrar #salvar4 {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    width: 128px;
+    margin-top: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    background: rgba(0,128,0,0.9);
+    box-shadow: 2px 2px 2px #696969;
+    margin-bottom: 23px;
+    cursor: pointer;
+}
+/*Fim botões salvar na tela de cadastro*/
+/*Botões cancelar na tela de cadastro*/
+.cadastrar #cancelar-2,
+.cadastrar #cancelar-3,
+.cadastrar #cancelar-4,
+.cadastrar #cancelar-5 {
+    border-radius: 5px;
+    border: none;
+    padding-top: 11px;
+    padding-bottom: 13px;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 30%;
+    color: #fff;
+    text-transform: uppercase;
+    background: rgba(255,0,0,0.8);
+    box-shadow: 2px 2px 2px #696969;
+    margin-bottom: 23px;
+    cursor: pointer;
+}
+.cadastrar #sec-cadastradas,
+.cadastrar #mat-cadastrados,
+.cadastrar #cole-cadastrados {
+    background: #fff;
+    padding: 10px;
+    box-shadow: 2px 2px 4px grey;
+}
+.cadastrar #sec-cadastradas span,
+.cadastrar #mat-cadastrados span,
+.cadastrar #cole-cadastrados span {
+    font-size: 18px;
+}
+.cadastrar .mater,
+.cadastrar .collecti,
+.cadastrar .secao {
+    display: none;
+}
+.cadastrar .icons {
+    display: inline-block
+}
+.cadastrar .icons .pencil {
+    width: 21px;
+    cursor: pointer;
+}
+.cadastrar .icons .icon-x {
+    width: 19px;
+    cursor: pointer;
+}
+/*Fim botões cancelar na tela de cadastro*/
+.titulos {
+    text-align: initial;
+}
+/*-----FIM TELA DE CADASTRO-----*/
+
+/*-----TELA DE CONSULTA E RELATÓRIO-----*/
+.consultar .cons-imagem img {
+    width: 100%;
+}
+.consultar .aba-5 h3 {
+    margin-top: 8px;
+}
+.consultar #consulta1 p {
+    margin-top: 0px;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+.consultar #titul,
+.consultar #regist,
+.consultar #tom,
+.consultar #alt,
+.consultar #collection,
+.consultar #mater,
+.consultar #sect,
+.consultar #cat {
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding: 10px;
+    box-shadow: 2px 2px 4px grey;  
+}
+.consultar #alt,
+.consultar #larg {
+    width: 32%;
+    outline: none;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding: 10px;
+    box-shadow: 2px 2px 4px grey;
+}
+.consultar #prof {
+    width: 32.5%;
+    outline: none;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding: 10px;
+    box-shadow: 2px 2px 4px grey;
+}
+.consultar #consulta1 p.titulos:nth-child(13),
+.consultar #consulta1 p.titulos:nth-child(14) {
+    margin-right: 8px;
+    width: 49%;
+    display: inline-block;
+}
+.consultar #consulta1 p.titulos:nth-child(15) {
+    margin-top: 25px;
+}
+.consultar #init, #fim {
+    display: block;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding: 10px;
+    box-shadow: 2px 2px 4px grey;
+}
+.consultar #titul::placeholder,
+.consultar #regist::placeholder,
+.consultar #tom::placeholder,
+.consultar #alt::placeholder,
+.consultar #collection::placeholder,
+.consultar #mater::placeholder,
+.consultar #sect::placeholder,
+.consultar #cat::placeholder,
+.consultar #alt::placeholder,
+.consultar #larg::placeholder,
+.consultar #prof::placeholder,
+.consultar #init::placeholder,
+.consultar #fim::placeholder {
+    font-size: 18px;
+}
+.consultar #titul:focus,
+.consultar #regist:focus,
+.consultar #tom:focus,
+.consultar #alt:focus,
+.consultar #collection:focus,
+.consultar #mater:focus,
+.consultar #sect:focus,
+.consultar #cat:focus,
+.consultar #alt:focus,
+.consultar #larg:focus,
+.consultar #prof:focus,
+.consultar #init:focus,
+.consultar #fim:focus {
+    border: solid 1px #4D4DFF;
+    box-shadow: 2px 2px 4px #4D4DFF;
+}
+.consultar #consulta1 span {
+    text-decoration: none;
+}
+.consultar #busc {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    width: 128px;
+    margin-top: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    background: rgba(0,128,0,0.9);
+    box-shadow: 2px 2px 2px #696969;
+    margin-bottom: 23px;
+    cursor: pointer;
+}
+.consultar #cancelar-6 {
+    border-radius: 5px;
+    border: none;
+    padding-top: 11px;
+    padding-bottom: 13px;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 30%;
+    color: #fff;
+    text-transform: uppercase;
+    background: rgba(255,0,0,0.8);
+    box-shadow: 2px 2px 2px #696969;
+    margin-bottom: 23px;
+    cursor: pointer;
+}
+.consultar #cancelar-6 a {
+    text-decoration: none;
+    color: #fff;
+}
+.consultar .resul {
+    display: none;
+    background: #c0c0c0;
+    padding: 10px;
+}
+.consultar .image {
+    width: 24.5%;
+    height: auto;
+    display: inline-block;
+    background: #fff;
+    box-shadow: 2px 2px 4px grey;
+    vertical-align: top;
+}
+.consultar .image img {
+    width: 100%;
+    height: 203px;
+}
+.consultar .conteudos {
+    width: 74%;
+    margin-left: 7px;
+    background: #fff;
+    box-shadow: 2px 2px 4px grey;
+    display: inline-block;
+    padding: 10px;
+}
+.consultar .conteudos pre {
+    margin-bottom: 0;
+    height: 193px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+.consultar .conteudos pre:before {
+    content: "●";
+    color: #8B0000;
+}
+.consultar .relat {
+    margin-top: 19px;
+    height: 55px;
+}
+.consultar .relat span {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    width: 194px;
+    color: #fff;
+    text-transform: uppercase;
+    background: rgba(0,128,0,0.9);
+    box-shadow: 2px 2px 2px #696969;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+/*-----FIM TELA DE CONSULTA E RELATÓRIO-----*/
+
+/*-----FOOTER-----*/
+footer {
+    padding-top: 30px;
+}
+footer .row {
+    background: #dcdcdc;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+footer .texto {
+    padding: 13px;
+}
+footer .texto p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000;
+}
+footer .brasao img {
+    width: 133px;
+    height: auto;
+}
+/*-----FIM FOOTER-----*/
