@@ -12,7 +12,7 @@
     <body class="cadastrar">
         <?php include_once 'common/header.php'; ?>
         <div class="container">
-            <div class="row cad">
+            <div class="row background">
                 <div class="imagem">
                     <img src="assets/img/Museu2.jpg" alt="museu1">
                 </div>
@@ -31,7 +31,11 @@
                         <label for='codigo' class="titulos">Código<span class="error-message msg16">(Digite um código)</span><input type="text" id="codigo" name="peca-cod" placeholder="Código de Registro" /></label>
                         <label for='titulo' class="titulos">Título<span class="error-message msg17">(Digite um título)</span><input type="text" id="titulo" name="peca-titulo" placeholder="Nome da peça" /></label>
                         <label for='tombo' class="titulos">Tombo<input type="text" id="tombo" name="peca-tombo" placeholder="Tombo da peça" /></label>
-                        <label for='altura' class="titulos altura-obra">Dimensões <br /><input type="text" id="altura" name="item-altura" placeholder="Altura" /><input type="text" id="largura" name="item-largura" placeholder="Largura"><input type="text" id="profundidade" name="item-profundidade" placeholder="Profundidade"></label>
+                        <label for='altura' class="titulos dimensoes-obra">Dimensões <br />
+                            <input type="text" id="altura" name="item-altura" placeholder="Altura" />
+                            <input type="text" id="largura" class="margin-vertical" name="item-largura" placeholder="Largura">
+                            <input type="text" id="profundidade" name="item-profundidade" placeholder="Profundidade">
+                        </label>
                         <label for='historico' class="titulos historico-obra">Histórico/Descrição<textarea cols="100" rows="5" id="historico" placeholder="Histórico da obra"></textarea></label>
                         <label for='' class="titulos">Data de doação<input type="date" id="data" name="item-data" /></label>
                         <label for='' class="titulos">Doador<input type="text" id="doador" name="item-doador" placeholder="Nome e sobrenome do doador" /></label>
@@ -81,7 +85,7 @@
                 </div>
                 <div class="aba-2 col-md-12">
                     <h3>Cadastro de Seção</h3>
-                    <form id="cadastro-2" action="" method="POST">
+                    <form id="cadastro-secao" action="" method="POST">
                         <label for='' class="titulos">Espaço físico<span class="error-message msg24">(Digite uma seção)</span><input type="text" id="secao-id" name="secao-nome" placeholder="Nome da Seção" /></label>
                         <br />
                         <input type="submit" id="salvar2" name="item-salvar2" value="Salvar">
@@ -119,7 +123,7 @@
                 </div>
                 <div class="aba-4 col-md-12">
                     <h3>Cadastro de Coleção</h3>
-                    <form id="cadastro-4" action="" method="POST">
+                    <form id="cadastro-colecao" action="" method="POST">
                         <label for='' class="titulos">Coleção<span class="error-message msg26">(Digite o nome de uma coleção)</span><input type="text" id="cole" name="cole-nome" placeholder="Nome da Coleção" /></label>
                         <br />
                         <input type="submit" id="salvar4" name="item-salvar3" value="Salvar">
