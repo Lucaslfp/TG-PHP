@@ -437,48 +437,36 @@ body .container .back {
     font-size: 20px;
     cursor: pointer;
 }
-.cadastrar #cadastro-1 input:focus,
+.cadastrar #cadastro-obra input:focus,
 .cadastrar #cadastro-2 #secao-id:focus,
-.cadastrar #cadastro-3 #mat:focus,
+.cadastrar #cadastro-material #material:focus,
 .cadastrar #cadastro-4 #cole:focus,
 .cadastrar textarea:focus,
 .cadastrar select:focus {
     border: solid 1px #4D4DFF;
     box-shadow: 2px 2px 4px #4D4DFF;
 }
-.cadastrar #cadastro-1 span,
+.cadastrar #cadastro-obra span,
 .cadastrar #cadastro-2 span,
-.cadastrar #cadastro-3 span,
+.cadastrar #cadastro-material span,
 .cadastrar #cadastro-4 span {
     text-decoration: none;
 }
-.cadastrar #cadastro-1 p, 
-.cadastrar #cadastro-2 p,
-.cadastrar #cadastro-3 p,
-.cadastrar #cadastro-4 p {
+.cadastrar #cadastro-obra label, 
+.cadastrar #cadastro-2 label,
+.cadastrar #cadastro-material label,
+.cadastrar #cadastro-4 label {
     margin-top: 0px;
     margin-bottom: 0;
     font-size: 18px;
+    width: 31%;
+    margin: 2% 1%;
     font-weight: 500;
 }
-.cadastrar #codigo,
-.cadastrar #titulo,
-.cadastrar #tombo,
-.cadastrar textarea,
-.cadastrar #cidade,
-.cadastrar select,
-.cadastrar #estado,
-.cadastrar #data,
-.cadastrar #doador,
-.cadastrar #entrada,
-.cadastrar #autor,
-.cadastrar #tecnica,
-.cadastrar #modelo,
-.cadastrar #categoria,
-.cadastrar #colecao,
-.cadastrar #cadastro-2 #secao-id,
-.cadastrar #cadastro-3 #mat,
-.cadastrar #cadastro-4 #cole {
+.cadastrar #cadastro-obra .altura-obra{
+    width: 100%;
+}
+.cadastrar label input {
     width: 100%;
     outline: none;
     border-radius: 5px;
@@ -486,45 +474,22 @@ body .container .back {
     padding: 10px;
     box-shadow: 2px 2px 4px grey;
 }
-.cadastrar #codigo::placeholder,
-.cadastrar #titulo::placeholder,
-.cadastrar #tombo::placeholder,
-.cadastrar #altura::placeholder,
-.cadastrar #largura::placeholder,
-.cadastrar #profundidade::placeholder,
-.cadastrar textarea::placeholder,
-.cadastrar #cidade::placeholder,
-.cadastrar #select::placeholder,
-.cadastrar #estado::placeholder,
-.cadastrar #data::placeholder,
-.cadastrar #doador::placeholder,
-.cadastrar #entrada::placeholder,
-.cadastrar #autor::placeholder,
-.cadastrar #tecnica::placeholder,
-.cadastrar #modelo::placeholder,
-.cadastrar #categoria::placeholder,
-.cadastrar #imagem::placeholder,
-.cadastrar #mat::placeholder,
-.cadastrar #cole::placeholder,
-.cadastrar #secao-id::placeholder {
+.cadastrar label input {
     font-size: 18px;
 }
 .cadastrar #altura,
-.cadastrar #largura {
-    width: 32%;
-    outline: none;
-    border-radius: 5px;
-    border: solid 1px rgba(0,0,0,0.3);
-    padding: 10px;
-    box-shadow: 2px 2px 4px grey;
-}
+.cadastrar #largura,
 .cadastrar #profundidade {
-    width: 32.5%;
+    width: 31%;
     outline: none;
     border-radius: 5px;
     border: solid 1px rgba(0,0,0,0.3);
     padding: 10px;
     box-shadow: 2px 2px 4px grey;
+    margin: 0 1%;
+}
+.cadastrar #cadastro-obra label.historico-obra, .cadastrar #cadastro-obra label.historico-obra textarea {
+    width: 100%;
 }
 .cadastrar #imagem {
     width: 100%;
@@ -600,18 +565,18 @@ body .container .back {
     cursor: pointer;
 }
 .cadastrar #sec-cadastradas,
-.cadastrar #mat-cadastrados,
+.cadastrar #materiais-cadastrados,
 .cadastrar #cole-cadastrados {
     background: #fff;
     padding: 10px;
     box-shadow: 2px 2px 4px grey;
 }
 .cadastrar #sec-cadastradas span,
-.cadastrar #mat-cadastrados span,
+.cadastrar #materiais-cadastrados span,
 .cadastrar #cole-cadastrados span {
     font-size: 18px;
 }
-.cadastrar .mater,
+.cadastrar .material,
 .cadastrar .collecti,
 .cadastrar .secao {
     display: none;
@@ -678,13 +643,13 @@ body .container .back {
     padding: 10px;
     box-shadow: 2px 2px 4px grey;
 }
-.consultar #consulta1 p.titulos:nth-child(13),
-.consultar #consulta1 p.titulos:nth-child(14) {
+.consultar #consulta1 .titulos:nth-child(13),
+.consultar #consulta1 .titulos:nth-child(14) {
     margin-right: 8px;
     width: 49%;
     display: inline-block;
 }
-.consultar #consulta1 p.titulos:nth-child(15) {
+.consultar #consulta1 .titulos:nth-child(15) {
     margin-top: 25px;
 }
 .consultar #init, #fim {
