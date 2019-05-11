@@ -1,3 +1,6 @@
+<?php
+$nome = !empty($_SESSION['nome']) ? $_SESSION['nome'] : ''; 
+?>
 <header>
     <div class="container">
         <div class="row">
@@ -7,9 +10,13 @@
             <div class="col-md-6"></div>
             <div class="user col-md-3">
                 <div class="user-icon">
-                    <img src="assets/img/user-icon.png" />
-                    <span>Olá, <strong><?php echo $_SESSION['nome']; ?></strong></span><br />
-                    <a href="php/logout.php"><span class="sair">Sair</span></a>
+                    <?php if (!empty($_SESSION)) { ?>
+                        <img src="assets/img/user-icon.png" />
+                        <span>Olá, <strong><?php echo $nome; ?></strong></span><br />
+                        <a href="php/logout.php"><span class="sair">Sair</span></a>
+                    <?php } else { ?>
+                        <a href="<?php echo SITEBASE; ?>login.php"><span class="sair">Entrar</span></a>
+                    <?php } ?>
                 </div>
             </div>
             <div class="navbar col-lg-12 col-md-12">
