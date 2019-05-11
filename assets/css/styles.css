@@ -497,10 +497,10 @@ body .container .back {
     border-radius: 5px;
     padding: 10px;
 }
-.cadastrar .area-imagem-1,
 .cadastrar .area-imagem {
+    margin: 2% 1%;
     display: inline-block;
-    width: 24.5%;
+    width: 23%;
     height: 228px;
     text-align: center;
     outline: none;

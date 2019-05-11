@@ -136,9 +136,9 @@ $(document).ready(function() {
 
     /*-----TELA DE CADASTROS------*/
     /*Funcionalidade dos botões mais e menos*/
-       $(".button #plus").on("click", function() {
+    $(".button #plus").on("click", function() {
         html = "<div class='area-imagem'>Espaço para imagem</div>";
-        $(".espace").append(html);
+        $(".imagem-obra").append(html);
     })
     $(".button #minus").on("click", function() {
         $(".area-imagem").remove();
