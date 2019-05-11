@@ -13,7 +13,7 @@
         <?php include_once 'common/header.php'; ?>
         <div class="container">
             <div class="row cad">
-                <div class="imagem col-md-12">
+                <div class="imagem">
                     <img src="assets/img/Museu2.jpg" alt="museu1">
                 </div>
                 <div class="col-md-12">
