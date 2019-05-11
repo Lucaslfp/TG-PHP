@@ -1,4 +1,9 @@
-<?php include_once 'common.php'; ?>
+<?php
+
+include_once 'common.php'; 
+!$_SESSION['logado'] == 'logado' ? header('Location: home.php') : false;
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
