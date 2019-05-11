@@ -1,8 +1,8 @@
 <?php
-
+include_once './../common.php';
 include_once './banco.php';
 
-if (isset($_POST)) {
+if (!empty($_POST)) {
     $dados = [
         "cpf" => addslashes($_POST['cpf']),
         "nome" => addslashes($_POST['nome']),

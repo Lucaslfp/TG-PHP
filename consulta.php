@@ -1,37 +1,16 @@
+<?php include_once 'common.php'; ?>
+<html>
+
 <head>
+    <title>Consulta e Relatório</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="stylesheet" href="bootstrap-4.2.1-dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bootstrap-4.2.1-dist/js/bootstrap.min.js" />
     <link rel="shortcut icon" href="assets/img/museum-icon.png" />
-    <title>Consulta e Relatório</title>
+    <?php include_once 'common/styles.php'; ?>
 </head>
-<header>
-    <div class="container">
-        <div class="row">
-            <div class="logo col-md-3">
-                <img src="assets/img/logo-fatec.png">
-            </div>
-            <div class="col-md-6"></div>
-            <div class="user col-md-3">
-                <div class="user-icon">
-                    <img src="imagens/user-icon.png" />
-                    <span>Olá, <strong>usuário</strong></span><br/>
-                    <a href=""><span class="sair">Sair</span></a>
-                </div>
-            </div>
-            <div class="navbar col-lg-12 col-md-12">
-                <ul>
-                    <a href="home.html"><li class="item1">Tela Inicial</li></a>
-                    <a href="cadastro.html"><li class="item2">Cadastro</li></a>
-                    <a href="consulta.html"><li class="item3">Consulta</li></a>
-                </ul>
-            </div>
-        </div>
-    </div>
-</header>
+
 <body class="consultar">
+    <?php include_once 'common/header.php'; ?>
     <div class="container">
         <div class="row back">
             <div class="col-md-12 cons-imagem">
@@ -50,7 +29,8 @@
                             <option class="opt5">---</option>
                         </select>
                     </p><br />
-                    <p class="titulos">Período inicial<input type="date" id="init" name="busca-init" /></p><p class="titulos">Período final<input type="date" id="fim" name="busca-fim" /></p>
+                    <p class="titulos">Período inicial<input type="date" id="init" name="busca-init" /></p>
+                    <p class="titulos">Período final<input type="date" id="fim" name="busca-fim" /></p>
                     <p class="titulos">Categoria<input type="text" id="cat" name="busca-cat" placeholder="Categoria da obra" /></p><br />
                     <p class="titulos">Seção
                         <select id="sect">
@@ -73,23 +53,9 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="scripts.js"></script>
+    <?php include_once 'common/footer.php'; ?>
+
+    <?php include_once 'common/scripts.php'; ?>
 </body>
 
-<footer>
-    <link rel="stylesheet" href="bootstrap-4.2.1-dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="footer.css" />
-    <div class="container">
-        <div class="row">
-            <div class="texto col-md-10">
-                <p>Trabalho realizado pelo grupo: Kevin Cavenatti Bueno, Lucas Ferraz de Lima, Lucas Lima de Faria Pacheco, Rodrigo Gianini do Prado Rodrigues, Thais Porto Mendonça.</p>
-                <p>Com a orientação da professora Cristina Becker Navarro.</p>
-                <p>Fatec Bragança Paulista - Curso de Gestão em Tecnologia da Informação. 2018-2019</p>
-            </div>
-            <div class="brasao col-md-2">
-                <img src="assets/img/logo-fatec.png" />
-            </div>
-        </div>
-    </div>
-</footer>
+</html>
