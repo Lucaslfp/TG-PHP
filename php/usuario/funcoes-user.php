@@ -13,6 +13,12 @@ if (!empty($_POST)) {
             "senha" => addslashes($_POST['senha']),
             "email" => addslashes($_POST['email']),
             "data" => addslashes($_POST['data']),
+            "rua" => addslashes($_POST['rua']),
+            "numero" => addslashes($_POST['numero']),
+            "bairro" => addslashes($_POST['bairro']),
+            "cidade" => addslashes($_POST['cidade']),
+            "complemento" => addslashes($_POST['complemento']),
+            "cep" => addslashes($_POST['cep']),
             "confirmar" => addslashes($_POST['confirma-senha']),
             "pergunta" => addslashes($_POST['pergunta']),
             "resposta" => addslashes($_POST['resposta']),
@@ -32,12 +38,18 @@ if (!empty($_POST)) {
         if (($dados['senha'] == $dados['confirmar'])) {
             $cadastro = $pdo->prepare(
                 "INSERT INTO usuario (cpf, senha, nome, email, data_nascimento, cidade, bairro, rua, numero, complemento, cep, pergunta, resposta, tipo, id_permissao)
-                VALUES (:cpf, :senha, :nome, :email, :data_n, 'cidade', 'bairro', '45', 100, 'complemento', 'cep', :pergunta, :resposta, :nivel, :permissao)");
+                VALUES (:cpf, :senha, :nome, :email, :data_n, :cidade, :bairro, :rua, :numero, :complemento, :cep, :pergunta, :resposta, :nivel, :permissao)");
             $cadastro->bindValue(":cpf", $dados['cpf']);
             $cadastro->bindValue(":senha", $dados['senha']);
             $cadastro->bindValue(':nome', $dados['nome']);
             $cadastro->bindValue(':email', $dados['email']);
             $cadastro->bindValue(':data_n', $dados['data']);
+            $cadastro->bindValue(':cidade', $dados['cidade']);
+            $cadastro->bindValue(':bairro', $dados['bairro']);
+            $cadastro->bindValue(':rua', $dados['rua']);
+            $cadastro->bindValue(':numero', $dados['numero']);
+            $cadastro->bindValue(':complemento', $dados['complemento']);
+            $cadastro->bindValue(':cep', $dados['cep']);
             $cadastro->bindValue(':pergunta', $dados['pergunta']);
             $cadastro->bindValue(':resposta', $dados['resposta']);
             $cadastro->bindValue(':nivel', $dados['nivel']);

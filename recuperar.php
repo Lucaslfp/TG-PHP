@@ -20,12 +20,12 @@
                     </div>
                     <h3>Recuperar senha <br /> <br /></h3>
                     <form id="login-sistema" action="php/usuario/funcoes-user.php?param=recuperar" method="POST">
-                        <p class="titulos">Insira a resposta da sua pergunta secreta
-                            <input type="text" id="nome" name="resposta" placeholder="Digite a Resposta" />
+                        <p class="titulos">Insira o seu e-mail abaixo
+                            <input type="text" id="nome" name="email" placeholder="Digite seu e-mail" required />
                         </p>
                         <br />
-                        <p class="titulos">Insira o seu e-mail abaixo
-                            <input type="text" id="nome" name="email" placeholder="Digite seu e-mail" />
+                        <p class="titulos">Insira a resposta da sua pergunta secreta
+                            <input type="text" id="nome" name="resposta" placeholder="Digite a Resposta" required />
                         </p>
                         <br />
                         <input type="submit" id="entrar" name="fazer-login" value="Enviar" />
@@ -40,11 +40,11 @@
                     <h3>Recuperar senha <br /> <br /></h3>
                     <form id="login-sistema" action="php/usuario/funcoes-user.php?param=nova-senha" method="POST">
                         <p class="titulos">Insira sua nova senha
-                            <input type="text" id="nome" name="senha" placeholder="Digite a Senha" />
+                            <input type="password" id="nome" name="senha" placeholder="Digite a Senha" required />
                         </p>
                         <br />
                         <p class="titulos">Confirme sua senha
-                            <input type="text" id="nome" name="confirmar" placeholder="Confirme sua senha" />
+                            <input type="password" id="nome" name="confirmar" placeholder="Confirme sua senha" required />
                         </p>
                         <br />
                         <input type="submit" id="entrar" name="fazer-login" value="Enviar" />
