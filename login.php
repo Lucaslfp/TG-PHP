@@ -28,7 +28,7 @@ if (!empty($_SESSION)) {
                         </div>
                         <h3>Entrar no sistema:</h3>
                         <span class="error-message msg1">Usuário e/ou senha inválidos.</span>
-                        <form id="login-sistema" action="php/entrar_sistema.php" method="POST">
+                        <form id="login-sistema" action="php/usuario/funcoes-user.php?param=login" method="POST">
                             <p class="titulos">Usuário
                                 <span class="error-message msg2">(Digite o Email)</span>
                                 <input type="text" id="nome" name="usuario" placeholder="Digite seu e-mail ou nome de usuário" /></p><br />
@@ -37,22 +37,9 @@ if (!empty($_SESSION)) {
                                 <input type="password" id="senha-login" name="senha" placeholder="Digite sua senha" /></p><br />
                             <input type="submit" id="entrar" name="fazer-login" value="Entrar" />
                             <a href="javascript:void(0)" class="register-new-user">Cadastrar usuário</a>
-                            <a href="javascript:void(0)" class="forgot-password">Esqueceu a senha?</a>
+                            <a href="<?php echo SITEBASE;?>recuperar.php" class="forgot-password">Esqueceu a senha?</a>
                         </form>
                     </div>
-                    <h3>Entrar no sistema:</h3>
-                    <span class="error-message msg1">Usuário e/ou senha inválidos.</span>
-                    <form id="login-sistema" action="php/usuario/funcoes-user.php?param=login" method="POST">
-                        <p class="titulos">CPF
-                            <span class="error-message msg2">(Digite o CPF)</span>
-                            <input type="text" id="nome" name="cpf" placeholder="Digite o seu CPF" required /></p><br />
-                        <p class="titulos">Senha
-                            <span class="error-message msg3">(Digite a senha)</span>
-                            <input type="password" id="senha-login" name="senha" placeholder="Digite sua senha" required /></p><br />
-                        <input type="submit" id="entrar" name="fazer-login" value="Entrar" />
-                        <a href="javascript:void(0)" class="register-new-user">Cadastrar usuário</a>
-                        <a href="recuperar.php" class="forgot-password">Esqueceu a senha?</a>
-                    </form>
                 </div>
                 <div class="form-register-user">
                     <div class="header-form">

@@ -29,6 +29,7 @@
                         </p>
                         <br />
                         <input type="submit" id="entrar" name="fazer-login" value="Enviar" />
+                        <a href='login.php' id="cancelar">Cancelar</a>
                     </form>
                 </div>
                 <?php } else { ?>
@@ -47,6 +48,7 @@
                         </p>
                         <br />
                         <input type="submit" id="entrar" name="fazer-login" value="Enviar" />
+                        <a href='login.php' id="cancelar">Cancelar</a>
                     </form>
                 </div>
                 <?php } ?>
