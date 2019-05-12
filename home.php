@@ -1,8 +1,11 @@
 <?php
 
-include_once 'common.php'; 
-!$_SESSION['logado'] == 'logado' ? header('Location: home.php') : false;
+include_once 'common.php';
 
+if (isset($_SESSION)) {
+    if ($_SESSION['logado'] != 'logado')
+        header('Location: login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

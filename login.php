@@ -1,8 +1,12 @@
 <?php
 include_once 'common.php'; 
 
-$_SESSION['logado'] == 'logado' ? header('Location: home.php') : false;
-
+if (!empty($_SESSION)) {
+    if (isset($_SESSION['logado'])) {
+        if ($_SESSION['logado'] == 'logado')
+            header('Location: home.php');
+    }
+}
 ?>
 <html>
 
@@ -25,12 +29,12 @@ $_SESSION['logado'] == 'logado' ? header('Location: home.php') : false;
                     <h3>Entrar no sistema:</h3>
                     <span class="error-message msg1">Usuário e/ou senha inválidos.</span>
                     <form id="login-sistema" action="php/usuario/funcoes-user.php?param=login" method="POST">
-                        <p class="titulos">Usuário
-                            <span class="error-message msg2">(Digite o Email)</span>
-                            <input type="text" id="nome" name="usuario" placeholder="Digite seu e-mail ou nome de usuário" /></p><br />
+                        <p class="titulos">CPF
+                            <span class="error-message msg2">(Digite o CPF)</span>
+                            <input type="text" id="nome" name="cpf" placeholder="Digite o seu CPF" required /></p><br />
                         <p class="titulos">Senha
                             <span class="error-message msg3">(Digite a senha)</span>
-                            <input type="password" id="senha-login" name="senha" placeholder="Digite sua senha" /></p><br />
+                            <input type="password" id="senha-login" name="senha" placeholder="Digite sua senha" required /></p><br />
                         <input type="submit" id="entrar" name="fazer-login" value="Entrar" />
                         <a href="javascript:void(0)" class="register-new-user">Cadastrar usuário</a>
                         <a href="recuperar.php" class="forgot-password">Esqueceu a senha?</a>
@@ -64,26 +68,6 @@ $_SESSION['logado'] == 'logado' ? header('Location: home.php') : false;
                             </select></p><br />
                         <input type="submit" id="cadastrar" name="fazer-cadastro" value="Cadastrar" />
                         <span id="cancelar">Cancelar</span>
-                    </form>
-                </div>
-                <div class="form-forgot-password">
-                    <div class="header-form">
-                        <img src="assets/img/logo-fatec.png" alt="logo">
-                    </div>
-                    <h3>Trocar senha:</h3>
-                    <span class="error-message msg12">Informações não preenchidas corretamente</span>
-                    <form id="senha-sistema" action="" method="POST">
-                        <p class="titulos">E-mail<span class="error-message msg13">(Digite um e-mail)</span><input type="email" id="email-usuario" name="email-user" placeholder="nome@exemplo.com" /></p><br />
-                        <p class="titulos">Pergunta secreta<span class="error-message msg14">(Selecione uma opção)</span><select id="select-options" name="pergunta">
-                                <option>---</option>
-                                <option>Nome da mãe</option>
-                                <option>Comida favorita</option>
-                                <option>Dia do aniversário</option>
-                                <option>Escola onde estudou</option>
-                            </select></p><br />
-                        <p class="titulos">Resposta<span class="error-message msg15">(Digite uma resposta)</span><input type="text" id="resposta-secreta" name="resposta" placeholder="Resposta para a pergunta secreta" /></p><br />
-                        <input type="submit" id="recuperar-senha" name="fazer-login" value="Trocar senha" />
-                        <a href="javascript:void(0)"><span id="cancelar">Cancelar</span></a>
                     </form>
                 </div>
             </div>

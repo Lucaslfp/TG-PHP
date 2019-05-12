@@ -19,6 +19,14 @@ if (!empty($_POST)) {
             "nivel" => addslashes($_POST['nivel'])
         ];
 
+        $l = $pdo->prepare('SELECT * FROM usuario WHERE email = ? OR cpf = ?');
+        $l->bindValue(1, $dados['email']);
+        $l->bindValue(2, $dados['cpf']);
+        $l->execute();
+
+        if ($l->rowCount() > 0)
+            echo "<script>alert('E-mail e/ou CPF já cadastrados'); window.location = history.go(-1);</script>";
+
         $permissao = $dados['nivel'] == 'Administrador' ? 1 : 2;
 
         if (($dados['senha'] == $dados['confirmar'])) {
@@ -36,17 +44,16 @@ if (!empty($_POST)) {
             $cadastro->bindValue(':permissao', $permissao);
             $cadastro->execute();
 
-            if ($cadastro->execute()) {
+            if ($cadastro->rowCount() > 0) {
                 $_SESSION['logado'] = 'logado';
-                $_SESSION['nome'] = $dados['nome'];
+                $nome = explode(" ", $dados['nome']);
+                $_SESSION['nome'] = $nome[0];
                 header("Location: ./../../home.php");
             }
 
             else {
                 echo "<script>alert('Falha no cadastro'); window.location = history.go(-1);</script>";
             }
-            // print_r($o);
-
         }
 
         else {
@@ -56,24 +63,26 @@ if (!empty($_POST)) {
     
     else if ($parametro == 'login') {
         $dados = [
-            "email" => addslashes($_POST['usuario']),
+            "cpf" => addslashes($_POST['cpf']),
             "senha" => addslashes($_POST['senha'])
-        ];
 
-        if ($dados['email'] != "") {
-            $buscar = $pdo->prepare("SELECT * FROM usuario WHERE :email = CPF and :senha = senha ");
-            $buscar->bindValue(":email", $dados['email']);
+        ];
+        if ($dados['cpf'] != "") {
+            $buscar = $pdo->prepare("SELECT * FROM usuario WHERE cpf = :cpf and senha = :senha ");
+            $buscar->bindValue(":cpf", $dados['cpf']);
             $buscar->bindValue(":senha", $dados['senha']);
             $buscar->execute();
 
-            $users = $buscar->fetchAll(PDO::FETCH_ASSOC);
+            if ($buscar->rowCount() > 0) {
+                $users = $buscar->fetch(PDO::FETCH_ASSOC);
 
-            if (count($users) > 0) {
-                header("Location: ./../home.php");
+                $nome = explode(" ", $users['nome']);
+                $_SESSION['nome'] = $nome[0];
                 $_SESSION['logado'] = 'logado';
-                $_SESSION['nome'] = $users[0]['Nome'];
+
+                header("Location: ./../../home.php");
             } else {
-                echo "<script>alert('Não localizamos o usuário'); window.location = history.go(-1);</script>";
+                echo "<script>alert('Usuário ou senha incorretos'); window.location = history.go(-1);</script>";
             }
 
         } else {
@@ -90,8 +99,40 @@ if (!empty($_POST)) {
     }
 
     else if ($parametro == 'recuperar') { 
+        $resposta = addslashes($_POST['resposta']);
+        $email = addslashes($_POST['email']);
 
-    } 
+        $l = $pdo->prepare('SELECT * FROM usuario WHERE email = ?');
+        $l->bindValue(1, $email);
+        $l->execute();
+
+        if ($l->rowCount() > 0) {
+            $info = $l->fetch();
+            if ($info['resposta'] == $resposta) {
+                $_SESSION['autorizado'] = 'true';
+                $_SESSION['email'] = $email;
+                header('Location: ./../../recuperar.php');
+            }
+            else {
+                echo "<script>alert('Resposta Incorreta. A pergunta é: ".$info['pergunta']."'); window.location = history.go(-1);</script>";
+            }
+        }
+    }
+
+    else if ($parametro == 'nova-senha') {
+        $senha = addslashes($_POST['senha']);
+        $email = $_SESSION['email'];
+
+        $l = $pdo->prepare("UPDATE usuario SET senha = ? WHERE email = ?");
+        $l->bindValue(1, $senha);
+        $l->bindValue(2, $email);
+        $l->execute();
+
+        if ($l->execute())
+            echo "<script>alert('Senha alterada com sucesso.'); window.location.href = './../../login.php';</script>";
+        else 
+            echo "<script>alert('Tente Novamente'); window.location = history.go(-1);</script>";
+    }
     
     else {
         echo "Não recebemos um parametro válido.";

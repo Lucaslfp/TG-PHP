@@ -13,21 +13,43 @@
     <div class="container">
         <div class="row">
             <div class="back col-md-12">
+                <?php if (!isset($_SESSION['autorizado'])) { ?>
                 <div class="form-login">
                     <div class="header-form">
                         <img src="assets/img/logo-fatec.png" alt="logo">
                     </div>
-                    <h3>Insira o seu e-mail:</h3>
-                    <form id="login-sistema" action="php/usuario/recuperar.php" method="POST">
-                        <p class="titulos">Usuário
-                            <span class="error-message msg2">(Digite o Email)</span>
-                            <input type="text" id="nome" name="usuario" placeholder="Digite seu e-mail ou nome de usuário" /></p><br />
-                        <p class="titulos">Senha
-                            <span class="error-message msg3">(Digite a senha)</span>
-                            <input type="password" id="senha-login" name="senha" placeholder="Digite sua senha" /></p><br />
-                        <input type="submit" id="entrar" name="fazer-login" value="Entrar" />
+                    <h3>Recuperar senha <br /> <br /></h3>
+                    <form id="login-sistema" action="php/usuario/funcoes-user.php?param=recuperar" method="POST">
+                        <p class="titulos">Insira a resposta da sua pergunta secreta
+                            <input type="text" id="nome" name="resposta" placeholder="Digite a Resposta" />
+                        </p>
+                        <br />
+                        <p class="titulos">Insira o seu e-mail abaixo
+                            <input type="text" id="nome" name="email" placeholder="Digite seu e-mail" />
+                        </p>
+                        <br />
+                        <input type="submit" id="entrar" name="fazer-login" value="Enviar" />
                     </form>
                 </div>
+                <?php } else { ?>
+                <div class="form-login">
+                    <div class="header-form">
+                        <img src="assets/img/logo-fatec.png" alt="logo">
+                    </div>
+                    <h3>Recuperar senha <br /> <br /></h3>
+                    <form id="login-sistema" action="php/usuario/funcoes-user.php?param=nova-senha" method="POST">
+                        <p class="titulos">Insira sua nova senha
+                            <input type="text" id="nome" name="senha" placeholder="Digite a Senha" />
+                        </p>
+                        <br />
+                        <p class="titulos">Confirme sua senha
+                            <input type="text" id="nome" name="confirmar" placeholder="Confirme sua senha" />
+                        </p>
+                        <br />
+                        <input type="submit" id="entrar" name="fazer-login" value="Enviar" />
+                    </form>
+                </div>
+                <?php } ?>
             </div>
         </div>
     </div>
