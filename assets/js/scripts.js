@@ -136,12 +136,15 @@ $(document).ready(function() {
 
     /*-----TELA DE CADASTROS------*/
     /*Funcionalidade dos botões mais e menos*/
-       $(".button #plus").on("click", function() {
-        html = "<div class='area-imagem'>Espaço para imagem</div>";
-        $(".espace").append(html);
-    })
+    $(".button #plus").on("click", function() {
+        if ($('.area-imagem').length < 4){
+            appendElement("<div class='area-imagem'>Espaço para imagem</div>", $(".imagem-obra"));
+        }
+    });
     $(".button #minus").on("click", function() {
-        $(".area-imagem").remove();
+        if($('.area-imagem').length > 1){
+            removeElement($('.area-imagem:last-child'));
+        }
     })
     /*Fim funcionalidade dos botoões mais e menos*/
     /*Aba 1 na tela de cadastro*/
@@ -292,5 +295,11 @@ $(document).ready(function() {
         $(elementOut).fadeOut('fast', 'linear', function(){
             $(elementIn).fadeIn('fast', 'linear');
         });
+    }
+    function appendElement(html, element){
+        element.append(html);
+    }
+    function removeElement(element){
+        element.remove()
     }
 })
