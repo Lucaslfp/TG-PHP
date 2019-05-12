@@ -10,10 +10,10 @@ $nome = !empty($_SESSION['nome']) ? $_SESSION['nome'] : '';
             <div class="col-md-6"></div>
             <div class="user col-md-3">
                 <div class="user-icon">
-                    <?php if (!empty($_SESSION)) { ?>
+                    <?php if ($_SESSION['logado'] == 'logado') { ?>
                         <img src="assets/img/user-icon.png" />
                         <span>Olá, <strong><?php echo $nome; ?></strong></span><br />
-                        <a href="php/logout.php"><span class="sair">Sair</span></a>
+                        <a href="<?php echo SITEBASE; ?>php/usuario/funcoes-user.php?param=logout"><span class="sair">Sair</span></a>
                     <?php } else { ?>
                         <a href="<?php echo SITEBASE; ?>login.php"><span class="sair">Entrar</span></a>
                     <?php } ?>

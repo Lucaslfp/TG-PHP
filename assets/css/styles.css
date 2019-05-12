@@ -9,7 +9,7 @@ body .container .background {
     width: 50%;
     margin: auto;
     padding: 50px;
-    border: solid 1px rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.3);
     margin-top: 50px;
     margin-bottom: 50px;
     background: #fff;
@@ -17,6 +17,11 @@ body .container .background {
 }
 .form-login h3 {
     padding-top: 16px;
+}
+
+.container .form-login .titulos,
+.container .form-register-user .titulos {
+    width: 100%;
 }
 .form-login .header-form {
     width: 100%;
