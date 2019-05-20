@@ -22,6 +22,16 @@ if ($parametro == 'criar_colecao') {
 
 else if ($parametro == 'editar_colecao') {
     $id = addslashes($_GET['id']);
+    $desc = addslashes($_POST['nome_colecao']);
+
+    $editar = $pdo->query("UPDATE colecao SET descricao = '{$desc}' WHERE id_colecao = '{$id}'");
+
+    if ($editar->rowCount() > 0) {
+        echo "<script>alert('Dados atualizados com sucesso'); window.location.href = './../../cadastro.php'</script>";
+    }
+    else {
+        echo "<script>alert('Erro ao atualizar os dados'); window.location = history.go(-1);</script>";
+    }
 }
 
 else if ($parametro == 'excluir_colecao') {

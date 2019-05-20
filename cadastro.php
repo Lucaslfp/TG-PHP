@@ -149,7 +149,7 @@ include_once './php/banco.php';
                                         <td><?php echo $colecoes['descricao']; ?></td>
     
                                         <td class="icons">
-                                            <a href="./php/colecao/funcoes-colecao.php?param=excluir_colecao&id=<?php echo $colecoes['id_colecao']?>">
+                                            <a href="./php/colecao/funcoes-colecao.php?param=excluir_colecao&id=<?php echo $colecoes['id_colecao']?>" onclick="return confirm('Deseja mesmo excluir?')">
                                                 <img src="assets/img/icon x.png" alt="x" class="icon-x" />
                                             </a>
                                         </td>
