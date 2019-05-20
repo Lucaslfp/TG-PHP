@@ -1,4 +1,7 @@
-<?php include_once 'common.php'; ?>
+<?php 
+include_once 'common.php'; 
+include_once './php/banco.php';
+?>
 <html>
 
     <head>
@@ -123,22 +126,71 @@
                 </div>
                 <div class="aba-4 col-md-12">
                     <h3>Cadastro de Coleção</h3>
-                    <form id="cadastro-colecao" action="" method="POST">
+                    <form id="cadastro-colecao" action="./php/colecao/funcoes-colecao.php?param=criar_colecao" method="POST">
                         <label for='' class="titulos">Coleção<span class="error-message msg26">(Digite o nome de uma coleção)</span><input type="text" id="cole" name="cole-nome" placeholder="Nome da Coleção" /></label>
                         <br />
                         <input type="submit" id="salvar4" name="item-salvar3" value="Salvar">
                         <span id="cancelar-5">Cancelar</span>
                         <div id="cole-cadastrados">
                             <h3>Coleções Cadastradas</h3>
-                            <div class="collecti">
-                                <span class="icons">
-                                    <img src="assets/img/icon x.png" alt="x" class="icon-x" />
-                                    <img src="assets/img/pencil.png" alt="edit" class="pencil" />
-                                </span>
-                                <span class="itens3">Guerra</span>
+                            <div class="collecti" style="display:block;">
+                                <table class="table">
+                                    <tr>
+                                        <th>ID DA COLEÇÃO</th>
+                                        <th>DESCRIÇÃO DA COLEÇÃO</th>
+                                    </tr>
+
+                                    <?php
+                                    $listar = $pdo->query('SELECT * FROM colecao');
+                                    foreach($listar->fetchAll() as $colecoes) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $colecoes['id_colecao']; ?></td>
+                                        <td><?php echo $colecoes['descricao']; ?></td>
+    
+                                        <td class="icons">
+                                            <a href="./php/colecao/funcoes-colecao.php?param=excluir_colecao&id=<?php echo $colecoes['id_colecao']?>" onclick="return confirm('Deseja mesmo excluir?')">
+                                                <img src="assets/img/icon x.png" alt="x" class="icon-x" />
+                                            </a>
+                                        </td>
+
+                                        <td class="icons">
+                                            <a class="editar_colecao" data-toggle="modal" data-doc="<?php echo $colecoes['id_colecao']; ?>" data-target="#myModal">
+                                                <img src="assets/img/pencil.png" alt="edit" class="pencil" />
+                                            </a>
+                                        </td>
+                                    </tr>                            
+                                    <?php } ?>
+                                </table>
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title"></h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form method="POST">
+                            <input type="text" class="titulos" name="nome_colecao" placeholder="Digite o novo nome para a coleção" />
+                            
+                            <input type="submit" name="enviar" class="btn btn-primary" />
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    </div>
+
+                    </div>
                 </div>
             </div>
         </div>

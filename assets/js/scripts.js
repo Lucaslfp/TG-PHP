@@ -195,6 +195,7 @@ $(document).ready(function() {
     /*Aba 4 na tela de cadastro */
     $(".abas .colecao").on("click", function() {
         $(".colecao").addClass("abas-ativo");
+        $(".collecti").show();
         $(".secao").removeClass("abas-ativo");
         $(".obra").removeClass("abas-ativo");
         $(".material").removeClass("abas-ativo");
@@ -287,7 +288,15 @@ $(document).ready(function() {
         else {
             $(".msg26").hide();
         }
-    })
+    });
+
+    $('.editar_colecao').on('click', function() {
+       var idColecao = $(this).attr('data-doc');
+       var linkForm = './php/colecao/funcoes-colecao.php?param=editar_colecao&id=' + idColecao;
+       $('.modal-header h4').text('Editar Coleção - ' + idColecao);
+       $('.modal-body form').attr('action', linkForm);
+    });
+
     /*Fim mensagens de inputs vazios na tela de cadastro de coleção*/
     /*------TELA DE CADASTROS-----*/
     
