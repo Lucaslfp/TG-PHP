@@ -1,6 +1,8 @@
 <?php 
 include_once 'common.php'; 
 include_once './php/banco.php';
+
+$listar = $pdo->query('SELECT * FROM colecao');
 ?>
 <html>
 
@@ -30,50 +32,76 @@ include_once './php/banco.php';
                 <div class="aba-1 col-md-12" style="display: block;">
                     <h3>Cadastro de obra</h3>
                     <span class="error-message msg23">Informações não preechidas corretamente</span>
-                    <form id="cadastro-obra">
-                        <label for='codigo' class="titulos">Código<span class="error-message msg16">(Digite um código)</span><input type="text" id="codigo" name="peca-cod" placeholder="Código de Registro" /></label>
-                        <label for='titulo' class="titulos">Título<span class="error-message msg17">(Digite um título)</span><input type="text" id="titulo" name="peca-titulo" placeholder="Nome da peça" /></label>
-                        <label for='tombo' class="titulos">Tombo<input type="text" id="tombo" name="peca-tombo" placeholder="Tombo da peça" /></label>
+                    <form id="cadastro-obra" method="POST" action="./php/obras/funcoes-obras.php?param=cadastro" enctype="multipart/form-data">
+                        <label for='codigo' class="titulos">Código<input type="text" id="codigo" name="item-cod" placeholder="Código de Registro" required /></label>
+                        <label for='titulo' class="titulos">Título<input type="text" id="titulo" name="item-titulo" placeholder="Nome da peça" required /></label>
+                        <label for='tombo' class="titulos">Tombo<input type="number" id="tombo" name="item-tombo" placeholder="Tombo da peça" /></label>
                         <label for='altura' class="titulos dimensoes-obra">Dimensões <br />
                             <input type="text" id="altura" name="item-altura" placeholder="Altura" />
                             <input type="text" id="largura" class="margin-vertical" name="item-largura" placeholder="Largura">
                             <input type="text" id="profundidade" name="item-profundidade" placeholder="Profundidade">
                         </label>
-                        <label for='historico' class="titulos historico-obra">Histórico/Descrição<textarea cols="100" rows="5" id="historico" placeholder="Histórico da obra"></textarea></label>
+                        <label for='historico' class="titulos historico-obra">Histórico/Descrição<textarea cols="100" rows="5" id="historico" name="item-descricao" placeholder="Histórico da obra"></textarea></label>
                         <label for='' class="titulos">Data de doação<input type="date" id="data" name="item-data" /></label>
                         <label for='' class="titulos">Doador<input type="text" id="doador" name="item-doador" placeholder="Nome e sobrenome do doador" /></label>
-                        <label for='' class="titulos">Data de entrada<span class="error-message msg18">(Digite uma data de entrada)</span><input type="date" id="entrada" name="item-entr" /></label>
+                        <label for='' class="titulos">Data de entrada<input type="date" id="entrada" name="item-entrada" required /></label>
                         <label for='estado-conservacao' class="titulos">Estado de conservação<input type="text" id="estado-conservacao" name="item-estado" placeholder="Estado de conservação da obra" /></label>
-                        <label for='cidade-origem' class="titulos">Cidade<input type="text" id="cidade-origem" name="cidade-origem" placeholder="Cidade de origem" /></label>
+                        <label for='cidade-origem' class="titulos">Cidade<input type="text" id="cidade-origem" name="item-cidade" placeholder="Cidade de origem" /></label>
                         <label for='uf-obra' class="titulos">UF
-                            <select id="uf-obra">
-                                <option>---</option><option>AC</option><option>AL</option><option>AP</option><option>AM</option>
-                                <option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option>
-                                <option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option>
-                                <option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option>
-                                <option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option>
-                                <option>SP</option><option>SE</option><option>TO</option>
+                            <select id="uf-obra" class="titulos" name="item-uf">
+                                <option>---</option>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
                             </select>
                         </label>
-                        <label for='' class="titulos">Autor/Artista<span class="error-message msg19">(Digite um autor/artista)</span><input type="text" id="autor" name="item-autor" placeholder="Nome e sobrenome do autor da obra" /></label>
+                        <label for='' class="titulos">Autor/Artista<input type="text" id="autor" name="item-autor" placeholder="Nome e sobrenome do autor da obra" required /></label>
                         <label for='' class="titulos">Técnica<input type="text" id="tecnica" name="item-tec" placeholder="Técnica utilizada" /></label>
-                        <label for='' class="titulos">Material
-                            <select class="opt-mat">
+                        <label for='' class="titulos">Material<input type="text" id=material name="item-material" />
+                            <!-- <select class="opt-mat" name="item-material">
                                 <option>---</option>
-                        </select>
+                        </select> -->
                         </label>
-                        <label for='' class="titulos">Modelo<input type="text" id="modelo" name="item-model" /></label>
-                        <label for='' class="titulos">Categoria<span class="error-message msg20">(Digite uma categoria)</span><input type="text" id="categoria" name="item-cat" placeholder="Categoria em que o item se encaixa" /></label>
-                        <label for='' class="titulos">Localização<span class="error-message msg21">(Selecione uma localização)</span><select class="local">
+                        <label for='' class="titulos">Modelo<input type="text" id="modelo" name="item-modelo" /></label>
+                        <label for='' class="titulos">Categoria<input type="text" id="categoria" name="item-categoria" placeholder="Categoria em que o item se encaixa" required /></label>
+                        <!-- <label for='' class="titulos">Localização<select class="local" req>
                             <option>---</option>
-                        </select></label><br />
+                        </select></label><br /> -->
                         <label for='' class="titulos">Coleção<span class="error-message msg22">(Selecione uma coleção)</span>
-                            <select class="colecao">
-                                <option>---</option>
+                            <select class="colecao" name="item-colecao" required>
+                                <?php 
+                                    foreach($listar->fetchAll() as $col_obras) {
+                                        echo "<option value='".$col_obras['id_colecao']."'>".$col_obras['descricao']."</option>";
+                                    }
+                                ?>
                             </select>
                         </label><br />
-                        <label for='' class="titulos">Observações<textarea cols="100" rows="5" placeholder="Espaço para observações"></textarea></label><br />
-                        <label for='' class="titulos">Inserir imagem<input type="file" id="imagem" name="item-img" /></label><br />
+                        <label for='' class="titulos">Observações<textarea cols="100" rows="5" name="item-obs" placeholder="Espaço para observações"></textarea></label><br />
+                        <label for='' class="titulos">Inserir imagem<input type="file" id="imagem" name="item-img[]" multiple /></label><br />
                         <div class="imagem-obra">
                             <div class="area-imagem">Espaço para imagem</div>
                         </div>
@@ -141,7 +169,6 @@ include_once './php/banco.php';
                                     </tr>
 
                                     <?php
-                                    $listar = $pdo->query('SELECT * FROM colecao');
                                     foreach($listar->fetchAll() as $colecoes) {
                                     ?>
                                     <tr>

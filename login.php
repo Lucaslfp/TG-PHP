@@ -33,7 +33,7 @@ if (!empty($_SESSION)) {
                             <p class="titulos">Senha
                                 <input type="password" id="senha-login" name="senha" placeholder="Digite sua senha" required /></p><br />
                             <input type="submit" id="entrar" name="fazer-login" value="Entrar" />
-                            <a href="javascript:void(0)" class="register-new-user">Cadastrar usuário</a>
+                            <!-- <a href="javascript:void(0)" class="register-new-user">Cadastrar usuário</a> -->
                             <a href="<?php echo SITEBASE;?>recuperar.php" class="input-info forgot-password">Esqueceu a senha?</a>
                         </form>
                     </div>
