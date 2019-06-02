@@ -143,7 +143,8 @@ $listar = $pdo->query('SELECT * FROM colecao');
                                     </tr>
 
                                     <?php
-                                    foreach($listar->fetchAll() as $colecoes) {
+                                    $listar2 = $pdo->query('SELECT * FROM colecao');
+                                    foreach($listar2->fetchAll() as $colecoes) {
                                     ?>
                                     <tr>
                                         <td><?php echo $colecoes['id_colecao']; ?></td>
