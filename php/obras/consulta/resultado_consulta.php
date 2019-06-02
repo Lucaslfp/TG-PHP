@@ -14,14 +14,14 @@ $col = $colecao->fetch();
 ?>
 <html>
     <head>
-        <title>Cadastro</title>
+        <title>Consulta</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="./../../../assets/img/museum-icon.png" />
         <?php include_once './../../../common/styles.php'; ?>
     </head>
 
-    <body class="cadastrar">
+    <body class="consultar">
         <?php include_once './../../../common/header.php'; ?>
         <div class="container">
             <div class="aba-1 col-md-12" style="display: block;">
