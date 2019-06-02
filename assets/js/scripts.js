@@ -299,6 +299,13 @@ $(document).ready(function() {
 
     /*Fim mensagens de inputs vazios na tela de cadastro de coleção*/
     /*------TELA DE CADASTROS-----*/
+
+    //Usuario mini-menu
+    $('.user-name').on('click', function() {
+        var $this = $(this);
+        $this.toggleClass('is--active');
+        $this.parents('.user-icon').toggleClass('is--active');
+    });
     
     function fadeInOut(elementOut, elementIn){
         $(elementOut).fadeOut('fast', 'linear', function(){
