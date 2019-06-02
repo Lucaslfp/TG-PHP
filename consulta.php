@@ -1,4 +1,9 @@
-<?php include_once 'common.php'; ?>
+<?php 
+include_once 'common.php'; 
+include_once './php/banco.php';
+
+$listar = $pdo->query('SELECT * FROM colecao');
+?>
 <html>
 
     <head>
@@ -18,24 +23,27 @@
                 </div>
                 <div class="aba-5 col-md-12">
                     <h3>Consulta de obras</h3>
-                    <form id="consultar-obras" action="" method="POST">
-                        <label for='' class="titulos">Objeto<input type="text" id="titul" name="busca-ti" placeholder="Título/nome da obra" /></label>
-                        <label for='' class="titulos">Código<input type="text" id="regist" name="busca-rg" placeholder="Código de registro da obra" /></label>
-                        <label for='' class="titulos">Tombo<input type="text" id="tom" name="busca-tombo" placeholder="Tombo da obra" /></label>
+                    <form id="consultar-obras" action="./php/obras/funcoes-obras.php?param=consulta" method="POST">
+                        <label for='' class="titulos">Objeto<input type="text" id="titul" name="objeto" placeholder="Título/nome da obra" /></label>
+                        <label for='' class="titulos">Código<input type="text" id="regist" name="codigo" placeholder="Código de registro da obra" /></label>
+                        <label for='' class="titulos">Tombo<input type="text" id="tom" name="tombo" placeholder="Tombo da obra" /></label>
                         <label for='' class="titulos dimensoes-obra">Dimensões <br /> 
-                            <input type="text" id="altura" name="busca-altura" placeholder="Altura" /> 
-                            <input type="text" id="largura" class="margin-vertical" name="busca-largura" placeholder="Largura" /> 
-                            <input type="text" id="profundidade" name="busca-profundidade" placeholder="Profundidade" />
+                            <input type="text" id="altura" name="altura" placeholder="Altura" /> 
+                            <input type="text" id="largura" class="margin-vertical" name="largura" placeholder="Largura" /> 
+                            <input type="text" id="profundidade" name="profundidade" placeholder="Profundidade" />
                         </label>
-                        <label for='' class="titulos">Coleção<input type="text" id="collection" name="busca-col" placeholder="Coleção ao qual pertence" /></label>
-                        <label for='' class="titulos">Material
-                            <select id="mater">
-                                <option class="opt5">---</option>
+                        <label for='' class="titulos">Coleção
+                            <select class="colecao" name="item-colecao">
+                                <?php 
+                                    foreach($listar->fetchAll() as $col_obras) {
+                                        echo "<option value='".$col_obras['id_colecao']."'>".$col_obras['descricao']."</option>";
+                                    }
+                                ?>
                             </select>
-                        </label>
-                        <label for='' class="titulos">Período inicial<input type="date" id="init" name="busca-init" /></label>
-                        <label for='' class="titulos">Período final<input type="date" id="fim" name="busca-fim" /></label>
-                        <label for='' class="titulos">Categoria<input type="text" id="cat" name="busca-cat" placeholder="Categoria da obra" /></label>
+                        </label><br />
+                        <label for='' class="titulos">Material<input type="text" id="collection" name="material" /></label>
+                        <label for='' class="titulos">Data de criação<input type="date" id="init" name="data-criacao" /></label>
+                        <!-- <label for='' class="titulos">Período final<input type="date" id="fim" name="data-fim" /></label> -->
                         <label for='' class="titulos">Seção
                             <select id="sect">
                                 <option class="opt6">---</option>
@@ -44,16 +52,6 @@
                         <input type="submit" id="busc" name="item-buscar" value="Buscar">
                         <span id="cancelar-6"><a href="home.php">Cancelar</a></span>
                     </form>
-                </div>
-                <div class="resul col-md-12">
-                    <h3>Resultado da busca:</h3>
-                    <div class="image"></div>
-                    <div class="conteudos">
-                        <pre></pre>
-                    </div>
-                    <div class="relat">
-                        <span>Gerar relatório</span>
-                    </div>
                 </div>
             </div>
         </div>
