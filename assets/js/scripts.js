@@ -299,7 +299,7 @@ $(document).ready(function() {
 
     /*Fim mensagens de inputs vazios na tela de cadastro de coleção*/
     /*------TELA DE CADASTROS-----*/
-
+    
     //Usuario mini-menu
     $('.user-name').on('click', function() {
         var $this = $(this);
@@ -316,6 +316,46 @@ $(document).ready(function() {
         element.append(html);
     }
     function removeElement(element){
-        element.remove()
+        element.remove();
     }
+    function addImagePreview(input){
+        if($('.imagem-obra .area-imagem').length != 0 && input.files[0]){
+            $('.imagem-obra').html(''); 
+        }
+        if(input.files && input.files[0]){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('.imagem-obra').append('<div class="area-imagem spot1"><img src="" alt /></div>');
+                $('.imagem-obra .area-imagem.spot1 img').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+        if(input.files && input.files[1]){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('.imagem-obra').append('<div class="area-imagem spot2"><img src="" alt /></div>');
+                $('.imagem-obra .area-imagem.spot2 img').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[1]);
+        }
+        if(input.files && input.files[2]){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('.imagem-obra').append('<div class="area-imagem spot3"><img src="" alt /></div>');
+                $('.imagem-obra .area-imagem.spot3 img').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[2]);
+        }
+        if(input.files && input.files[3]){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('.imagem-obra').append('<div class="area-imagem spot4"><img src="" alt /></div>');
+                $('.imagem-obra .area-imagem.spot4 img').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[3]);
+        }
+    }
+    $(document).on('change','.cadastrar input[type="file"]', function(){
+        addImagePreview(this);
+    });
 })
