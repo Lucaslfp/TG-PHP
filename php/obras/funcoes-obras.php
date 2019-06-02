@@ -29,8 +29,6 @@ if ($parametro == "cadastro") {
         "obs" => $_POST['item-obs']
     ];
 
-    $id_obra = rand(1, 1000000);
-
     if (isset($_FILES['item-img'])) {
         $imagem = $_FILES['item-img'];
         $numArquivo = count(array_filter($imagem['name']));
@@ -57,7 +55,7 @@ if ($parametro == "cadastro") {
 
         $salvar_obra = $pdo->query(
             "INSERT INTO item SET " .
-            "id_item = '{$id_obra}'," .
+            "id_item = '{$obra['item-cod']}'," .
             "tombo = '{$obra["tombo"]}'," .
             "titulo = '{$obra["titulo"]}'," .
             "largura = '{$obra["largura"]}'," .
@@ -85,4 +83,90 @@ if ($parametro == "cadastro") {
             echo "<script>alert('Dados incorretos, verifique e tente novamente.'); window.location = history.go(-1);</script>";
         }
     }
+}
+
+else if ($parametro == 'consulta') {
+    unset($_SESSION['result_consulta']);
+
+    $result = [];
+
+    $consulta = [
+        "objeto" => $_POST['objeto'],
+        "codigo" => $_POST['codigo'],
+        "tombo" => $_POST['tombo'],
+        "altura" => $_POST['altura'],
+        "largura" => $_POST['largura'],
+        "profundidade" => $_POST['profundidade'],
+        "item-colecao" => $_POST['item-colecao'],
+        "material" => $_POST['material'],
+        "data-criacao" => $_POST['data-criacao']
+    ];
+
+    if (find_empty($consulta) == 'true') {
+        try {
+            $l = "SELECT * FROM item WHERE 
+                titulo = '{$consulta["objeto"]}' OR
+                id_item = '{$consulta["codigo"]}' OR
+                tombo = '{$consulta["tombo"]}' OR
+                altura = '{$consulta["altura"]}' OR
+                largura = '{$consulta["largura"]}' OR
+                profundidade = '{$consulta["profundidade"]}' OR
+                colecao_id = '{$consulta["item-colecao"]}' OR
+                material = '{$consulta["material"]}' OR
+                data_criacao = '{$consulta["data-criacao"]}'
+            ";
+
+            foreach($pdo->query($l) as $key) {
+                $_SESSION['result_consulta'] = $key;
+            }
+
+            if ($_SESSION['result_consulta'])
+                header('Location: ./../../resultado_consulta.php');
+            else
+                echo "<script>alert('Não encontramos nenhuma obra com as especificações informadas'); window.location = history.go(-1);</script>";
+        }
+
+        catch (PDOException $e) {
+            echo "ERRO: " .$e;
+        }        
+    }
+
+    else {
+        try {
+            $l = "SELECT * FROM item WHERE 
+                titulo = '{$consulta["objeto"]}' AND
+                id_item = '{$consulta["codigo"]}' AND
+                tombo = '{$consulta["tombo"]}' AND
+                altura = '{$consulta["altura"]}' AND
+                largura = '{$consulta["largura"]}' AND
+                profundidade = '{$consulta["profundidade"]}' AND
+                colecao_id = '{$consulta["item-colecao"]}' AND
+                material = '{$consulta["material"]}' AND
+                data_criacao = '{$consulta["data-criacao"]}'
+            ";
+
+            foreach($pdo->query($l) as $key) {
+                $_SESSION['result_consulta'] = $key;
+            }
+
+            if ($_SESSION['result_consulta'])
+                header('Location: ./../../resultado_consulta.php');
+            else
+                echo "<script>alert('Não encontramos nenhuma obra com as especificações informadas'); window.location = history.go(-1);</script>";
+        }
+        catch(PDOException $e) {
+            echo "ERRO: ".$e;
+        }
+    }
+}
+
+
+function find_empty ($array) {
+    $vazio = 'false';
+
+    foreach($array as $key => $value) {
+        $vazio = empty($value) ? 'true' : 'false';
+    }
+
+    return $vazio;
 }
