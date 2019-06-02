@@ -47,7 +47,7 @@ include_once 'common.php';
                                 <option class="opt1">Usuário comum</option>
                             </select></p><br />
                         <input type="submit" id="cadastrar" name="fazer-cadastro" value="Cadastrar" />
-                        <span id="cancelar">Cancelar</span>
+                        <a id="cancelar" href="home.php">Cancelar</a>
                     </form>
                 </div>
             </div>

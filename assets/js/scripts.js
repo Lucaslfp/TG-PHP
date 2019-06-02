@@ -10,9 +10,6 @@ $(document).ready(function() {
     $(".form-forgot-password #cancelar").on("click", function() {
         fadeInOut($('.form-forgot-password'),$('.form-login'));        
     });
-    $(".form-register-user #cancelar").on("click", function() {
-        fadeInOut($('.form-register-user'), $('.form-login'));
-    });
     /*Mensagens de erro para inputs vazios na tela de login*/
     $("#entrar").on("click", function() {
         if($("#nome").val() == "") {
