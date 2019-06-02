@@ -34,6 +34,7 @@ $listar = $pdo->query('SELECT * FROM colecao');
                         </label>
                         <label for='' class="titulos">Coleção
                             <select class="colecao" name="item-colecao">
+                                <option></option>
                                 <?php 
                                     foreach($listar->fetchAll() as $col_obras) {
                                         echo "<option value='".$col_obras['id_colecao']."'>".$col_obras['descricao']."</option>";

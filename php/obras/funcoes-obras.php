@@ -55,7 +55,7 @@ if ($parametro == "cadastro") {
 
         $salvar_obra = $pdo->query(
             "INSERT INTO item SET " .
-            "id_item = '{$obra['item-cod']}'," .
+            "id_item = '{$obra['codigo']}'," .
             "tombo = '{$obra["tombo"]}'," .
             "titulo = '{$obra["titulo"]}'," .
             "largura = '{$obra["largura"]}'," .
@@ -88,6 +88,8 @@ if ($parametro == "cadastro") {
 else if ($parametro == 'consulta') {
     unset($_SESSION['result_consulta']);
 
+    $_SESSION['result_consulta'] = [];
+
     $result = [];
 
     $consulta = [
@@ -104,24 +106,33 @@ else if ($parametro == 'consulta') {
 
     if (find_empty($consulta) == 'true') {
         try {
-            $l = "SELECT * FROM item WHERE 
-                titulo = '{$consulta["objeto"]}' OR
-                id_item = '{$consulta["codigo"]}' OR
-                tombo = '{$consulta["tombo"]}' OR
-                altura = '{$consulta["altura"]}' OR
-                largura = '{$consulta["largura"]}' OR
-                profundidade = '{$consulta["profundidade"]}' OR
-                colecao_id = '{$consulta["item-colecao"]}' OR
-                material = '{$consulta["material"]}' OR
-                data_criacao = '{$consulta["data-criacao"]}'
-            ";
+            $l = $pdo->prepare("SELECT * FROM item WHERE 
+                titulo = :titulo OR
+                id_item = :codigo OR
+                tombo = :tombo OR
+                altura = :altura OR
+                largura = :largura OR
+                profundidade = :profundidade OR
+                colecao_id = :colecao OR
+                material = :material OR
+                data_criacao = :data_criacao
+            ");
 
-            foreach($pdo->query($l) as $key) {
-                $_SESSION['result_consulta'] = $key;
-            }
+            $l->bindValue(":titulo", $consulta["objeto"]);
+            $l->bindValue(":codigo", $consulta["codigo"]);
+            $l->bindValue(":tombo", $consulta["tombo"]);
+            $l->bindValue(":altura", $consulta["altura"]);
+            $l->bindValue(":largura", $consulta["largura"]);
+            $l->bindValue(":profundidade", $consulta["profundidade"]);
+            $l->bindValue(":colecao", $consulta["item-colecao"]);
+            $l->bindValue(":material", $consulta["material"]);
+            $l->bindValue(":data_criacao", $consulta["data-criacao"]);
+            $l->execute();
 
+            $_SESSION['result_consulta'] = $l->fetchAll();
+            
             if ($_SESSION['result_consulta'])
-                header('Location: ./../../resultado_consulta.php');
+                header('Location: ./consulta/resultado.php');
             else
                 echo "<script>alert('Não encontramos nenhuma obra com as especificações informadas'); window.location = history.go(-1);</script>";
         }
@@ -133,24 +144,33 @@ else if ($parametro == 'consulta') {
 
     else {
         try {
-            $l = "SELECT * FROM item WHERE 
-                titulo = '{$consulta["objeto"]}' AND
-                id_item = '{$consulta["codigo"]}' AND
-                tombo = '{$consulta["tombo"]}' AND
-                altura = '{$consulta["altura"]}' AND
-                largura = '{$consulta["largura"]}' AND
-                profundidade = '{$consulta["profundidade"]}' AND
-                colecao_id = '{$consulta["item-colecao"]}' AND
-                material = '{$consulta["material"]}' AND
-                data_criacao = '{$consulta["data-criacao"]}'
-            ";
+            $l = $pdo->prepare("SELECT * FROM item WHERE 
+                titulo = :titulo OR
+                id_item = :codigo OR
+                tombo = :tombo OR
+                altura = :altura OR
+                largura = :largura OR
+                profundidade = :profundidade OR
+                colecao_id = :colecao OR
+                material = :material OR
+                data_criacao = :data_criacao
+            ");
 
-            foreach($pdo->query($l) as $key) {
-                $_SESSION['result_consulta'] = $key;
-            }
+            $l->bindValue(":titulo", $consulta["objeto"]);
+            $l->bindValue(":codigo", $consulta["codigo"]);
+            $l->bindValue(":tombo", $consulta["tombo"]);
+            $l->bindValue(":altura", $consulta["altura"]);
+            $l->bindValue(":largura", $consulta["largura"]);
+            $l->bindValue(":profundidade", $consulta["profundidade"]);
+            $l->bindValue(":colecao", $consulta["item-colecao"]);
+            $l->bindValue(":material", $consulta["material"]);
+            $l->bindValue(":data_criacao", $consulta["data-criacao"]);
+            $l->execute();
+
+            $_SESSION['result_consulta'] = $l->fetchAll();
 
             if ($_SESSION['result_consulta'])
-                header('Location: ./../../resultado_consulta.php');
+                header('Location: ./consulta/resultado.php');
             else
                 echo "<script>alert('Não encontramos nenhuma obra com as especificações informadas'); window.location = history.go(-1);</script>";
         }
@@ -158,6 +178,43 @@ else if ($parametro == 'consulta') {
             echo "ERRO: ".$e;
         }
     }
+}
+
+else if ($parametro == "editar") {
+    $id = addslashes($_GET['id']);
+
+    $editar = $pdo->query("UPDATE item 
+        SET 
+            titulo = '{$_POST["item-titulo"]}',
+            tombo = '{$_POST["item-tombo"]}',
+            altura = '{$_POST["item-altura"]}',
+            largura = '{$_POST["item-largura"]}',
+            profundidade = '{$_POST["item-profundidade"]}',
+            descricao = '{$_POST["item-descricao"]}',
+            data_criacao = '{$_POST["item-data"]}',
+            autor_descobridor = '{$_POST["item-autor"]}',
+            conservacao = '{$_POST["item-estado"]}',
+            cidade = '{$_POST["item-cidade"]}',
+            estado = '{$_POST["item-uf"]}',
+            tecnica = '{$_POST["item-tecnica"]}',
+            material = '{$_POST["item-material"]}',
+            modelo = '{$_POST["item-modelo"]}',
+            colecao_id = '{$_POST["item-colecao"]}',
+            obs = '{$_POST["item-obs"]}'
+        WHERE id_item = '{$id}'");
+
+    if ($editar) {
+        echo "<script>alert('Dados atualizados com sucesso'); window.location.href = './consulta/resultado.php'</script>";
+    }
+    else {
+        echo "<script>alert('Erro ao atualizar os dados'); window.location = history.go(-1);</script>";
+    }
+}
+
+else if ($parametro == "excluir") {
+    $id = addslashes($_GET['id']);
+    $del = $pdo->query("DELETE FROM item WHERE id_item = '{$id}'");
+    header('Location: ./obras/consulta/resultado.php');
 }
 
 

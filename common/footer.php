@@ -7,7 +7,7 @@
                     <p>Fatec Bragança Paulista - Curso de Gestão em Tecnologia da Informação. 2018-2019</p>
                 </div>
                 <div class="brasao col-md-2">
-                    <img src="assets/img/logo-fatec.png" />
+                    <img src="<?php echo SITEBASE; ?>assets/img/logo-fatec.png" />
                 </div>
             </div>
         </div>
