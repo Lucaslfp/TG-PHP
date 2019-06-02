@@ -501,7 +501,7 @@ body .container {
 .container .dimensoes-obra{
     width: 100%;
 }
-.cadastrar label input, .cadastrar label select {
+.cadastrar label input, .cadastrar label select, .modal-body .titulo-modal {
     width: 100%;
     outline: none;
     border-radius: 5px;
@@ -509,6 +509,10 @@ body .container {
     padding: 10px;
     box-shadow: 2px 2px 4px grey;
     font-size: 18px;
+}
+.modal-body .titulo-modal{
+    margin-bottom: 10px;
+    width: 95% !important;
 }
 .text-cadastro {
     width: 98% !important;

@@ -182,7 +182,7 @@ $listar = $pdo->query('SELECT * FROM colecao');
 
                     <div class="modal-body">
                         <form method="POST">
-                            <input type="text" class="titulos" name="nome_colecao" placeholder="Digite o novo nome para a coleção" />
+                            <input type="text" class="titulos titulo-modal" name="nome_colecao" placeholder="Digite o novo nome para a coleção" />
                             
                             <input type="submit" name="enviar" class="btn btn-primary" />
                         </form>
