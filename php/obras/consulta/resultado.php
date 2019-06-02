@@ -33,7 +33,7 @@ include_once './../../banco.php';
                                 <td><?php echo $r['titulo']; ?></td>
 
                                 <td class="icons">
-                                    <a href="./php/colecao/funcoes-obra.php?param=excluir&id=<?php echo $r['id_item'] ?>" onclick="return confirm('Deseja mesmo excluir?')">
+                                    <a href="./../funcoes-obras.php?param=excluir&id=<?php echo $r['id_item'] ?>" onclick="return confirm('Deseja mesmo excluir?')">
                                         <img src="<?php echo SITEBASE; ?>assets/img/icon x.png" alt="x" class="icon-x" />
                                     </a>
                                 </td>

@@ -57,6 +57,10 @@ $col = $colecao->fetch();
                             </select>
                         </label><br />
                     <label for='' class="titulos">Observações<textarea cols="100" rows="5" name="item-obs"><?php echo $i['obs']; ?></textarea></label><br />
+                    <label for='' class="titulos">Inserir imagem<input type="file" id="imagem" name="item-img[]" multiple /></label><br />
+                    <div class="imagem-obra"></div>
+                    <br />
+                    
                     <input type="submit" value="Editar" />
                     <a href="imprimir.php?id=<?php echo $id; ?>" target="_blank" id="imprimir">Imprimir</a>
                     <a href="./resultado.php">Voltar</a>

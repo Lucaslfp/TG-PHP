@@ -1,5 +1,5 @@
 <?php
-include_once 'common.php'; 
+include_once 'common.php';
 ?>
 <html>
 
@@ -20,7 +20,7 @@ include_once 'common.php';
                         <img src="assets/img/logo-fatec.png" alt="logo">
                     </div>
                     <h3>Cadastrar usuário no sistema:</h3>
-                    <form id="register-user" action="php/usuario/funcoes-user.php?param=cadastrar" method="POST">
+                    <form id="register-user" action="./php/usuario/funcoes-user.php?param=cadastrar" method="POST">
                         <p class="titulos">Nome<input type="text" id="nome-usuario" name="nome" placeholder="Digite seu nome de usuário" required /></p><br />
                         <p class="titulos">CPF<input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required  /></p><br />
                         <p class="titulos">E-mail<input type="email" id="email-novo-usuario" name="email" placeholder="nome@exemplo.com" /></p><br />
