@@ -626,6 +626,7 @@ body .container {
 }
 .area-imagem img {
     max-width: -webkit-fill-available;
+    max-height: -webkit-fill-available;
 }
 .cadastro .imagem-obra {
     display: flex;
