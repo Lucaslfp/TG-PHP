@@ -31,7 +31,6 @@ if (isset($_SESSION)) {
                     <ul class="abas">
                         <li class="obra">Obras</li>
                         <li class="secao">Seção</li>
-                        <li class="material">Material</li>
                         <li class="colecao">Coleção</li>
                     </ul>
                 </div>
@@ -133,25 +132,6 @@ if (isset($_SESSION)) {
                         </div>
                     </form>
                 </div>
-                <div class="aba-3 col-md-12">
-                    <h3>Cadastro de Material</h3>
-                    <form id="cadastro-material" method="POST">
-                        <label for='' class="titulos">Material<span class="error-message msg25">(Digite o nome de um material)</span><input type="text" id="material" name="mat-nome" placeholder="Nome do Material" /></label>
-                        <br />
-                        <input type="submit" id="salvar3" name="item-salvar3" value="Salvar">
-                        <span id="cancelar-4">Cancelar</span>
-                        <div id="materiais-cadastrados">
-                            <h3>Materiais Cadastrados</h3>
-                            <div class="material">
-                                <span class="icons">
-                                    <img src="assets/img/icon x.png" alt="x" class="icon-x" />
-                                    <img src="assets/img/pencil.png" alt="edit" class="pencil" />
-                                </span>
-                                <span class="itens2"></span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
                 <div class="aba-4 col-md-12">
                     <h3>Cadastro de Coleção</h3>
                     <form id="cadastro-colecao" action="./php/colecao/funcoes-colecao.php?param=criar_colecao" method="POST">
@@ -208,7 +188,7 @@ if (isset($_SESSION)) {
 
                     <div class="modal-body">
                         <form method="POST">
-                            <input type="text" class="titulos" name="nome_colecao" placeholder="Digite o novo nome para a coleção" />
+                            <input type="text" class="titulos titulo-modal" name="nome_colecao" placeholder="Digite o novo nome para a coleção" />
                             
                             <input type="submit" name="enviar" class="btn btn-primary" />
                         </form>
