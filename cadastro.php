@@ -3,6 +3,12 @@ include_once 'common.php';
 include_once './php/banco.php';
 
 $listar = $pdo->query('SELECT * FROM colecao');
+
+if (isset($_SESSION)) {
+    if ($_SESSION['logado'] != 'logado')
+        header('Location: login.php');
+}
+
 ?>
 <html>
 

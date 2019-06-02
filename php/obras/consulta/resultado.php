@@ -1,6 +1,13 @@
 <?php
 include_once './../../../common.php';
 include_once './../../banco.php';
+
+if (isset($_SESSION)) {
+    if ($_SESSION['logado'] != 'logado')
+        header('Location: ./../../../login.php');
+}
+
+
 ?>
 <html>
 
@@ -23,14 +30,17 @@ include_once './../../banco.php';
                         <tr>
                             <th>ID DO ITEM</th>
                             <th>TÍTULO DO ITEM</th>
+                            <th>IMAGEM</th>
                         </tr>
 
                         <?php
                         foreach ($_SESSION['result_consulta'] as $r) {
+                            $imagens = explode(' , ', $r['img']);
                             ?>
                             <tr>
                                 <td><?php echo $r['id_item']; ?></td>
                                 <td><?php echo $r['titulo']; ?></td>
+                                <td><?php echo "<img src='http://localhost/tg/php/obras/imagens_obras/".$imagens[0]."' height='100' width='150'/>" ?></td>
 
                                 <td class="icons">
                                     <a href="./../funcoes-obras.php?param=excluir&id=<?php echo $r['id_item'] ?>" onclick="return confirm('Deseja mesmo excluir?')">
@@ -41,6 +51,12 @@ include_once './../../banco.php';
                                 <td class="icons">
                                     <a href="./resultado_consulta.php?id=<?php echo $r['id_item'] ?>" class="editar_colecao">
                                         <img src="<?php echo SITEBASE; ?>assets/img/pencil.png" alt="edit" class="pencil" />
+                                    </a>
+                                </td>
+
+                                <td class="icons">
+                                    <a href="./imprimir.php?id=<?php echo $r['id_item'] ?>" target="_blank">
+                                        imprimir
                                     </a>
                                 </td>
                             </tr>
