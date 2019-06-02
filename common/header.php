@@ -13,7 +13,13 @@ $nome = !empty($_SESSION['nome']) ? $_SESSION['nome'] : '';
                     <?php if ($_SESSION['logado'] == 'logado') { ?>
                         <img src="<?php echo SITEBASE; ?>assets/img/user-icon.png" />
                         <span>Olá, <strong><?php echo $nome; ?></strong></span><br />
+                        <img src="assets/img/user-icon.png" />
+                        <span class="user-name">Olá, <strong><?php echo $nome; ?></strong></span><br />
                         <a href="<?php echo SITEBASE; ?>php/usuario/funcoes-user.php?param=logout"><span class="sair">Sair</span></a>
+                        <div class="user-options">
+                            <a href="">Editar perfil</a>
+                            <a href="cadastrar-usuario.php">Cadastrar novo usuário</a>
+                        </div>
                     <?php } else { ?>
                         <a href="<?php echo SITEBASE; ?>login.php"><span class="sair">Entrar</span></a>
                     <?php } ?>

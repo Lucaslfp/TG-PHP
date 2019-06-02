@@ -89,7 +89,7 @@ body .container .background {
 /*Fim tela de login*/
 /*Cadastro de usuário*/
 .form-register-user {
-    display: none;
+    display: block;
     width: 50%;
     margin: auto;
     padding: 50px;
@@ -281,6 +281,10 @@ header .row {
     align-items: center;
     justify-content: flex-end;
 }
+.user-icon {
+    position: relative;
+    right: 20px;
+}
 .user .user-icon a {
     text-decoration: none;
 }
@@ -339,6 +343,47 @@ header .navbar {
     font-weight: 700;
     text-shadow: 2px 2px 2px #a9a9a9;
     text-decoration: none;
+}
+.user-name { 
+    position: relative;
+    cursor: pointer;
+}
+.user-name:after {
+    content: ">";
+    position: absolute;
+    transform: rotate(90deg);
+    top: -2px;
+    font-size: 20px;
+    right: -20px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.user-name.is--active:after {
+    transform: rotate(-90deg);
+    right: -15px;
+}
+.user-options {
+    display: none;
+    position: absolute;
+    top: 29px;
+    left: 35px;
+    width: 175px;
+    background: #fff;
+    box-shadow: 1px 1px 3px;
+    z-index: 2;
+}
+.user-icon.is--active .user-options {
+    display: block;
+}
+.user-options a {
+    display: block;
+    padding: 5px;
+    cursor: pointer;
+    color: #000000;
+}
+.user-options a:hover {
+    background: rgba(220,220,200,0.2);
+    color: #000000;
 }
 /*-----FIM HEADER-----*/
 
