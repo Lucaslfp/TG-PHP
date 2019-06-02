@@ -41,14 +41,14 @@ $listar = $pdo->query('SELECT * FROM colecao');
                             <input type="text" id="largura" class="margin-vertical" name="item-largura" placeholder="Largura">
                             <input type="text" id="profundidade" name="item-profundidade" placeholder="Profundidade">
                         </label>
-                        <label for='historico' class="titulos historico-obra">Histórico/Descrição<textarea cols="100" rows="5" id="historico" name="item-descricao" placeholder="Histórico da obra"></textarea></label>
+                        <label for='historico' class="titulos historico-obra">Histórico/Descrição<textarea cols="100" rows="5" id="historico" class="text-cadastro" name="item-descricao" placeholder="Histórico da obra"></textarea></label>
                         <label for='' class="titulos">Data de doação<input type="date" id="data" name="item-data" /></label>
                         <label for='' class="titulos">Doador<input type="text" id="doador" name="item-doador" placeholder="Nome e sobrenome do doador" /></label>
                         <label for='' class="titulos">Data de entrada<input type="date" id="entrada" name="item-entrada" required /></label>
                         <label for='estado-conservacao' class="titulos">Estado de conservação<input type="text" id="estado-conservacao" name="item-estado" placeholder="Estado de conservação da obra" /></label>
                         <label for='cidade-origem' class="titulos">Cidade<input type="text" id="cidade-origem" name="item-cidade" placeholder="Cidade de origem" /></label>
                         <label for='uf-obra' class="titulos">UF
-                            <select id="uf-obra" class="titulos" name="item-uf">
+                            <select id="uf-obra" name="item-uf">
                                 <option>---</option>
                                 <option value="AC">AC</option>
                                 <option value="AL">AL</option>
@@ -100,15 +100,9 @@ $listar = $pdo->query('SELECT * FROM colecao');
                                 ?>
                             </select>
                         </label><br />
-                        <label for='' class="titulos">Observações<textarea cols="100" rows="5" name="item-obs" placeholder="Espaço para observações"></textarea></label><br />
+                        <label for='' class="titulos observacoes-obra">Observações<textarea cols="100" rows="5" name="item-obs" class="text-cadastro" placeholder="Espaço para observações"></textarea></label><br />
                         <label for='' class="titulos">Inserir imagem<input type="file" id="imagem" name="item-img[]" multiple /></label><br />
-                        <div class="imagem-obra">
-                            <div class="area-imagem">Espaço para imagem</div>
-                        </div>
-                        <div class="button">
-                            <img src="assets/img/mais.png" alt="plus" id="plus" />
-                            <img src="assets/img/menos.png" alt="minus" id="minus" />
-                        </div>
+                        <div class="imagem-obra"></div>
                         <br />
                         <input type="submit" id="salvar" name="item-salvar" value="Salvar">
                         <span id="cancelar-2">Cancelar</span>
@@ -169,8 +163,7 @@ $listar = $pdo->query('SELECT * FROM colecao');
                                     </tr>
 
                                     <?php
-                                    $listar2 = $pdo->query('SELECT * FROM colecao');
-                                    foreach($listar2->fetchAll() as $colecoes) {
+                                    foreach($listar->fetchAll() as $colecoes) {
                                     ?>
                                     <tr>
                                         <td><?php echo $colecoes['id_colecao']; ?></td>
