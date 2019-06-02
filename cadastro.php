@@ -25,7 +25,6 @@ $listar = $pdo->query('SELECT * FROM colecao');
                     <ul class="abas">
                         <li class="obra">Obras</li>
                         <li class="secao">Seção</li>
-                        <li class="material">Material</li>
                         <li class="colecao">Coleção</li>
                     </ul>
                 </div>
@@ -118,25 +117,6 @@ $listar = $pdo->query('SELECT * FROM colecao');
                         <div id="sec-cadastradas">
                             <h3>Seções cadastradas</h3>
                             <div class="sec">
-                                <span class="icons">
-                                    <img src="assets/img/icon x.png" alt="x" class="icon-x" />
-                                    <img src="assets/img/pencil.png" alt="edit" class="pencil" />
-                                </span>
-                                <span class="itens2"></span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="aba-3 col-md-12">
-                    <h3>Cadastro de Material</h3>
-                    <form id="cadastro-material" method="POST">
-                        <label for='' class="titulos">Material<span class="error-message msg25">(Digite o nome de um material)</span><input type="text" id="material" name="mat-nome" placeholder="Nome do Material" /></label>
-                        <br />
-                        <input type="submit" id="salvar3" name="item-salvar3" value="Salvar">
-                        <span id="cancelar-4">Cancelar</span>
-                        <div id="materiais-cadastrados">
-                            <h3>Materiais Cadastrados</h3>
-                            <div class="material">
                                 <span class="icons">
                                     <img src="assets/img/icon x.png" alt="x" class="icon-x" />
                                     <img src="assets/img/pencil.png" alt="edit" class="pencil" />

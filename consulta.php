@@ -32,7 +32,15 @@ $listar = $pdo->query('SELECT * FROM colecao');
                             <input type="text" id="largura" class="margin-vertical" name="largura" placeholder="Largura" /> 
                             <input type="text" id="profundidade" name="profundidade" placeholder="Profundidade" />
                         </label>
-                        <label for='' class="titulos">Coleção
+                        <label for='' class="titulos">Material<input type="text" id="collection" name="material" /></label>
+                        <label for='' class="titulos">Data de criação<input type="date" id="init" name="data-criacao" /></label>
+                        <!-- <label for='' class="titulos">Período final<input type="date" id="fim" name="data-fim" /></label> -->
+                        <label for='' class="titulos">Seção
+                            <select id="sect">
+                                <option class="opt6">---</option>
+                            </select>
+                        </label>
+                        <label for='' class="titulos db">Coleção
                             <select class="colecao" name="item-colecao">
                                 <option></option>
                                 <?php 
@@ -40,14 +48,6 @@ $listar = $pdo->query('SELECT * FROM colecao');
                                         echo "<option value='".$col_obras['id_colecao']."'>".$col_obras['descricao']."</option>";
                                     }
                                 ?>
-                            </select>
-                        </label><br />
-                        <label for='' class="titulos">Material<input type="text" id="collection" name="material" /></label>
-                        <label for='' class="titulos">Data de criação<input type="date" id="init" name="data-criacao" /></label>
-                        <!-- <label for='' class="titulos">Período final<input type="date" id="fim" name="data-fim" /></label> -->
-                        <label for='' class="titulos">Seção
-                            <select id="sect">
-                                <option class="opt6">---</option>
                             </select>
                         </label>
                         <input type="submit" id="busc" name="item-buscar" value="Buscar">

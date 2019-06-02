@@ -5,6 +5,9 @@ body .container .background {
 }
 /*Fim background*/
 /*Tela de login*/
+.db{
+    display: block;
+}
 .form-login {
     width: 50%;
     margin: auto;
@@ -520,6 +523,14 @@ body .container {
     padding: 10px;
     box-shadow: 2px 2px 4px grey;
 }
+.consultar .container .colecao {
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: solid 1px rgba(0,0,0,0.3);
+    padding: 10px;
+    box-shadow: 2px 2px 4px grey;
+}
 .cadastrar #cadastro-obra label.historico-obra, .cadastrar #cadastro-obra label.historico-obra textarea, .cadastrar #cadastro-obra label.observacoes-obra {
     width: 100%;
 }
@@ -607,11 +618,6 @@ body .container {
 .cadastrar #materiais-cadastrados span,
 .cadastrar #cole-cadastrados span {
     font-size: 18px;
-}
-.cadastrar .material,
-.cadastrar .collecti,
-.cadastrar .secao {
-    display: none;
 }
 .cadastrar .icons {
     display: inline-block
