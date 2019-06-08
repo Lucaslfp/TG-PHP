@@ -89,6 +89,7 @@ if (!empty($_POST)) {
                 $_SESSION['nome'] = $nome[0];
                 $_SESSION['id'] = $users['cpf'];
                 $_SESSION['logado'] = 'logado';
+                $_SESSION['nivel'] = $users['tipo'];
 
                 header("Location: ./../../home.php");
             } else {

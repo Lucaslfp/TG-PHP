@@ -3,8 +3,8 @@ include_once './../../common.php';
 include_once './../banco.php';
 
 if (isset($_SESSION)) {
-    if ($_SESSION['logado'] != 'logado')
-        header('Location: login.php');
+    if ($_SESSION['logado'] != 'logado' || $_SESSION['nivel'] != 'Administrador')
+        header('Location: ./../../home.php');
 }
 
 $l = $pdo->query("SELECT * FROM usuario");
