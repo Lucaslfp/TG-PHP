@@ -15,8 +15,9 @@ $nome = !empty($_SESSION['nome']) ? $_SESSION['nome'] : '';
                         <span class="user-name">Olá, <strong><?php echo $nome; ?></strong></span><br />
                         <a href="<?php echo SITEBASE; ?>php/usuario/funcoes-user.php?param=logout"><span class="sair">Sair</span></a>
                         <div class="user-options">
-                            <a href="">Editar perfil</a>
-                            <a href="cadastrar-usuario.php">Cadastrar novo usuário</a>
+                            <a href="<?php echo SITEBASE; ?>php/usuario/editar.php">Editar perfil</a>
+                            <a href="<?php echo SITEBASE; ?>php/usuario/listar.php">Gerenciar Usuários</a>
+                            <a href="<?php echo SITEBASE; ?>cadastrar-usuario.php">Cadastrar novo usuário</a>
                         </div>
                     <?php } else { ?>
                         <a href="<?php echo SITEBASE; ?>login.php"><span class="sair">Entrar</span></a>

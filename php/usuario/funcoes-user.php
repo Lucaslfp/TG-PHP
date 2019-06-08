@@ -57,10 +57,7 @@ if (!empty($_POST)) {
             $cadastro->execute();
 
             if ($cadastro->rowCount() > 0) {
-                $_SESSION['logado'] = 'logado';
-                $nome = explode(" ", $dados['nome']);
-                $_SESSION['nome'] = $nome[0];
-                header("Location: ./../../home.php");
+                echo "<script>alert('Usuário cadastrado com sucesso.'); window.location.href = './../../cadastrar-usuario.php';</script>";
             }
 
             else {
@@ -90,6 +87,7 @@ if (!empty($_POST)) {
 
                 $nome = explode(" ", $users['nome']);
                 $_SESSION['nome'] = $nome[0];
+                $_SESSION['id'] = $users['cpf'];
                 $_SESSION['logado'] = 'logado';
 
                 header("Location: ./../../home.php");
@@ -102,8 +100,39 @@ if (!empty($_POST)) {
         }
     }
 
-    else if ($parametro == 'editar') { 
+    else if ($parametro == 'editar') {
+        $id = $_GET['id'];
+        try {
+            $atualizar = $pdo->query("UPDATE usuario SET 
+                    cpf = '{$_POST["cpf"]}',
+                    nome = '{$_POST["nome"]}',
+                    email = '{$_POST["email"]}',
+                    data_nascimento = '{$_POST["data"]}',
+                    cep = '{$_POST["cep"]}',
+                    rua = '{$_POST["rua"]}',
+                    numero = '{$_POST["numero"]}',
+                    bairro = '{$_POST["bairro"]}',
+                    complemento = '{$_POST["complemento"]}',
+                    cidade = '{$_POST["cidade"]}',
+                    senha = '{$_POST["senha"]}',
+                    email = '{$_POST["email"]}',
+                    pergunta = '{$_POST["pergunta"]}',
+                    resposta = '{$_POST["resposta"]}',
+                    tipo = '{$_POST["nivel"]}'
+                WHERE cpf = '{$id}'");
 
+            if ($atualizar) {
+                header('Location: editar.php?id='.$_POST['cpf']);
+            }
+
+            else {
+                echo "<script>alert('Erro ao atualizar os dados'); window.location = history.go(-1);</script>";
+            }
+        }
+
+        catch(PDOException $e) {
+            echo "ERRO: " . $e;
+        }
     }
 
     else if ($parametro == 'excluir') {
