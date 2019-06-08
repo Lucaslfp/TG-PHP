@@ -135,8 +135,10 @@ if (!empty($_POST)) {
         }
     }
 
-    else if ($parametro == 'excluir') {
-
+    else if ($parametro == 'excluir_u') {
+        $id = $_GET['id'];
+        $d = $pdo->query("DELETE FROM usuario WHERE cpf = '{$id}'");
+        header("Location: ./listar.php");
     }
 
     else if ($parametro == 'recuperar') { 

@@ -51,7 +51,7 @@ $l = $pdo->query("SELECT * FROM usuario");
                         <th></th>
                     </tr>
 
-                    <?php foreach ($l->fetchAll() as $u) ?>
+                    <?php foreach ($l->fetchAll() as $u) { ?>
 
                     <tr>
                         <td><?php echo $u['cpf']; ?></td>
@@ -59,7 +59,7 @@ $l = $pdo->query("SELECT * FROM usuario");
                         <td><?php echo $u['email']; ?></td>
                         <td><?php echo $u['tipo']; ?></td>
                         <td class="icons">
-                            <a href="./funcoes-user?param=excluir&id=<?php echo $u['cpf']?>" onclick="return confirm('Deseja mesmo excluir?')">
+                            <a href="./funcoes-user.php?param=excluir_u&id=<?php echo $u['cpf']?>" onclick="return confirm('Deseja mesmo excluir?')">
                                 <img src="./../../assets/img/icon x.png" alt="x" class="icon-x" style="height: 20px;" />
                             </a>
                         </td>
@@ -70,6 +70,8 @@ $l = $pdo->query("SELECT * FROM usuario");
                             </a>
                         </td>
                     </tr>
+
+                    <?php } ?>
 
                 </table>
             </div>
