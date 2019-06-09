@@ -295,19 +295,18 @@ $(document).ready(function() {
 
     $('.editar_colecao').on('click', function() {
        var idColecao = $(this).attr('data-doc');
+       var nome = $(this).attr('data-name');
        var linkForm = './php/colecao/funcoes-colecao.php?param=editar_colecao&id=' + idColecao;
-       $('.modal-header h4').text('Editar Coleção - ' + idColecao);
+       $('.modal-header h4').text('Editar Coleção - ' + nome);
        $('.modal-body form').attr('action', linkForm);
     });
 
     $('.editar_secao').on('click', function() {
-        var idColecao = $(this).attr('data-doc');
-        var linkForm = './php/secao/funcoes-secao.php?param=editar&id=' + idColecao;
-
-        console.log(idColecao);
-        console.log(linkForm);
+        var id = $(this).attr('data-doc');
+        var nome = $(this).attr('data-name');
+        var linkForm = './php/secao/funcoes-secao.php?param=editar&id=' + id;
         
-        $('.modal-header h4').text('Editar Seção - ' + idColecao);
+        $('.modal-header h4').text('Editar Seção - ' + nome);
         $('.modal-body form').attr('action', linkForm);
     });
 

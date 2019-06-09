@@ -84,15 +84,17 @@ if (isset($_SESSION)) {
                         <label for='' class="titulos">Autor/Artista<input type="text" id="autor" name="item-autor" placeholder="Nome e sobrenome do autor da obra" required /></label>
                         <label for='' class="titulos">Técnica<input type="text" id="tecnica" name="item-tec" placeholder="Técnica utilizada" /></label>
                         <label for='' class="titulos">Material<input type="text" id=material name="item-material" />
-                            <!-- <select class="opt-mat" name="item-material">
-                                <option>---</option>
-                        </select> -->
                         </label>
                         <label for='' class="titulos">Modelo<input type="text" id="modelo" name="item-modelo" /></label>
-                        <label for='' class="titulos">Categoria<input type="text" id="categoria" name="item-categoria" placeholder="Categoria em que o item se encaixa" required /></label>
-                        <!-- <label for='' class="titulos">Localização<select class="local" req>
-                            <option>---</option>
-                        </select></label><br /> -->
+                        <!-- <label for='' class="titulos">Categoria<input type="text" id="categoria" name="item-categoria" placeholder="Categoria em que o item se encaixa" required /></label> -->
+                        <label for='' class="titulos">Seção<select class="colecao" name="secao" required>
+                                <?php
+                                    $s = $pdo->query("SELECT * FROM local");
+                                    foreach($s->fetchAll() as $secoes) {
+                                        echo "<option value='".$secoes['idLocal']."'>".$secoes['nome_local']."</option>";
+                                    }
+                                ?>
+                        </select></label>
                         <label for='' class="titulos">Coleção<span class="error-message msg22">(Selecione uma coleção)</span>
                             <select class="colecao" name="item-colecao" required>
                                 <?php 
@@ -141,7 +143,7 @@ if (isset($_SESSION)) {
                                         </td>
 
                                         <td class="icons">
-                                            <a class="editar_secao" data-toggle="modal" data-doc="<?php echo $l['idLocal']; ?>" data-target="#myModal">
+                                            <a class="editar_secao" data-toggle="modal" data-doc="<?php echo $l['idLocal']; ?>" data-name="<?php echo $l['nome_local'] ?>" data-target="#myModal">
                                                 <img src="assets/img/pencil.png" alt="edit" class="pencil" />
                                             </a>
                                         </td>
@@ -183,7 +185,7 @@ if (isset($_SESSION)) {
                                         </td>
 
                                         <td class="icons">
-                                            <a class="editar_colecao" data-toggle="modal" data-doc="<?php echo $colecoes['id_colecao']; ?>" data-target="#myModal">
+                                            <a class="editar_colecao" data-toggle="modal" data-doc="<?php echo $colecoes['id_colecao']; ?>" data-name="<?php echo $colecoes['descricao'] ?>" data-target="#myModal">
                                                 <img src="assets/img/pencil.png" alt="edit" class="pencil" />
                                             </a>
                                         </td>
