@@ -71,11 +71,11 @@ if ($parametro == "cadastro") {
             "data_criacao = '{$obra["data"]}'," .
             "autor_descobridor = '{$obra["autor"]}'," .
             "material = '{$obra["material"]}'," .
-            "secao = {$obra["secao"]}, ".
+            "secao = '{$obra["secao"]}', ".
             "tecnica = '{$obra["tecnica"]}'," .
             "modelo = '{$obra["modelo"]}'," .
             "img = '{$img_obra}'," .
-            "colecao_id = {$obra["colecao"]}"
+            "colecao_id = '{$obra["colecao"]}'"
         );
 
         if ($salvar_obra) {
