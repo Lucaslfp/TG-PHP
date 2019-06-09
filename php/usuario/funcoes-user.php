@@ -123,7 +123,7 @@ if (!empty($_POST)) {
                 WHERE cpf = '{$id}'");
 
             if ($atualizar) {
-                header('Location: editar.php?id='.$_POST['cpf']);
+                header('Location: ./../../home.php');
             }
 
             else {
