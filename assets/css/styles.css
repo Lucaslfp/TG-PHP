@@ -501,7 +501,7 @@ body .container {
 .container .dimensoes-obra{
     width: 100%;
 }
-.cadastrar label input, .cadastrar label select, .modal-body .titulo-modal {
+label input, label select, .modal-body .titulo-modal {
     width: 100%;
     outline: none;
     border-radius: 5px;
@@ -535,8 +535,8 @@ body .container {
     padding: 10px;
     box-shadow: 2px 2px 4px grey;
 }
-.cadastrar #cadastro-obra label.historico-obra, .cadastrar #cadastro-obra label.historico-obra textarea, .cadastrar #cadastro-obra label.observacoes-obra {
-    width: 100%;
+label.historico-obra, label.historico-obra textarea, label.observacoes-obra {
+    width: 100% !important; 
 }
 .cadastrar #imagem {
     width: 100%;
