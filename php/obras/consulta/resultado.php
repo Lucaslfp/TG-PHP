@@ -47,7 +47,10 @@ if (isset($_POST)) {
 
     $sql = $pdo->query("SELECT * FROM item WHERE {$dados}");
 
-    echo "SELECT * FROM item WHERE {$dados}";
+    $sql2 = $pdo->query("SELECT * FROM item WHERE {$dados}");
+    $_SESSION['resultados'] = $sql2->fetchAll();
+
+    // echo "SELECT * FROM item WHERE {$dados}";
 
     if (!$sql) {
         echo "<script>alert('Nenhum resultado encontrado.'); window.location.href = './../../../consulta.php'</script>";
@@ -72,11 +75,15 @@ if (isset($_POST)) {
             <h3>Resultado da consulta</h3>
             <div id="cole-cadastrados">
                 <div class="collecti" style="display:block;">
+                    <a href="./imprimir_resultados.php" target="_blank" class="btn btn-info">Imprimir Resultados</a>
                     <table class="table">
                         <tr>
                             <th>ID DO ITEM</th>
                             <th>TÍTULO DO ITEM</th>
                             <th>IMAGEM</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
 
                         <?php
