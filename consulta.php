@@ -23,9 +23,6 @@ $listar = $pdo->query('SELECT * FROM colecao');
         <?php include_once 'common/header.php'; ?>
         <div class="container">
             <div class="row background">
-                <div class="consulta-imagem">
-                    <img src="assets/img/museu-4.jpg" alt="museu1" />
-                </div>
                 <div class="aba-5 col-md-12">
                     <h3>Consulta de obras</h3>
                     <div class="check-list">

@@ -24,7 +24,7 @@ if ($parametro == "cadastro") {
         "tecnica" => $_POST['item-tec'],
         "material" => $_POST['item-material'],
         "modelo" => $_POST['item-modelo'],
-        "categoria" => $_POST['item-categoria'],
+        "secao" => $_POST['secao'],
         "colecao" => $_POST['item-colecao'],
         "obs" => $_POST['item-obs']
     ];
@@ -69,6 +69,7 @@ if ($parametro == "cadastro") {
             "data_criacao = '{$obra["data"]}'," .
             "autor_descobridor = '{$obra["autor"]}'," .
             "material = '{$obra["material"]}'," .
+            "secao = '{$obra['secao']}', ".
             "tecnica = '{$obra["tecnica"]}'," .
             "modelo = '{$obra["modelo"]}'," .
             "img = '{$img_obra}'," .
@@ -220,6 +221,7 @@ else if ($parametro == "editar") {
             estado = '{$_POST["item-uf"]}',
             tecnica = '{$_POST["item-tecnica"]}',
             material = '{$_POST["item-material"]}',
+            secao = '{$_POST["secao"]}',
             modelo = '{$_POST["item-modelo"]}',
             colecao_id = '{$_POST["item-colecao"]}',
             obs = '{$_POST["item-obs"]}',
