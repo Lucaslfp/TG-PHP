@@ -29,6 +29,8 @@ if ($parametro == "cadastro") {
         "obs" => $_POST['item-obs']
     ];
 
+    $novoNome = array();
+
     if (isset($_FILES['item-img'])) {
         $imagem = $_FILES['item-img'];
         $numArquivo = count(array_filter($imagem['name']));
