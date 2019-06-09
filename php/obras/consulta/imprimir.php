@@ -22,7 +22,7 @@ $col = $colecao->fetch();
     </head>
 
     <body class="cadastrar" onload="window.print()">
-        <div class="container">
+        <div class="container" style="padding-top: 20px;">
             <div class="aba-1 col-md-12" style="display: block;">
                 <form id="cadastro-obra" action="./../funcoes-obras.php?param=editar&id=<?php echo $id; ?>" method="POST">
                     <label for='codigo' class="titulos">Código<input type="text" id="codigo" name="item-cod" value="<?php echo $i['id_item']; ?>" readonly /></label>
