@@ -24,9 +24,6 @@ if (isset($_SESSION)) {
         <?php include_once 'common/header.php'; ?>
         <div class="container">
             <div class="row background">
-                <div class="imagem">
-                    <img src="assets/img/Museu2.jpg" alt="museu1">
-                </div>
                 <div class="col-md-12">
                     <ul class="abas">
                         <li class="obra">Obras</li>
