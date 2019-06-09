@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 29-Maio-2019 às 04:42
+-- Generation Time: 10-Jun-2019 às 01:22
 -- Versão do servidor: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -39,7 +39,9 @@ CREATE TABLE `colecao` (
 --
 
 INSERT INTO `colecao` (`id_colecao`, `descricao`, `num_total_itens_CAT`) VALUES
-('256554', 'ColeÃ§Ã£o A', 0);
+('33711', 'ColeÃ§Ã£o de Quadros', 0),
+('434571', 'ColeÃ§Ã£o de Artefatos', 0),
+('461306', 'ColeÃ§Ã£o de Pedras', 0);
 
 -- --------------------------------------------------------
 
@@ -87,12 +89,26 @@ CREATE TABLE `item` (
   `data_criacao` date NOT NULL,
   `autor_descobridor` varchar(45) DEFAULT NULL,
   `material` varchar(45) DEFAULT NULL,
+  `secao` varchar(80) NOT NULL,
   `tecnica` varchar(45) DEFAULT NULL,
   `modelo` varchar(45) DEFAULT NULL,
   `reserva` tinyint(1) NOT NULL,
   `img` varchar(200) NOT NULL,
   `colecao_id` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `item`
+--
+
+INSERT INTO `item` (`id_item`, `tombo`, `titulo`, `largura`, `altura`, `profundidade`, `cidade`, `estado`, `descricao`, `obs`, `conservacao`, `data_criacao`, `autor_descobridor`, `material`, `secao`, `tecnica`, `modelo`, `reserva`, `img`, `colecao_id`) VALUES
+('095734', 66, 'Obra teste', '30', '30', '30', 'SÃ£o Paulo', 'SP', 'histÃ³rico teste', 'ObservaÃ§Ã£o teste', 'Bem conservado', '1995-12-08', 'Rodrigo', 'Tela de pintura', '558241', 'Pintura', 'Modelo teste', 0, '', '33711'),
+('1221', 12, 'asdasd', 'asdasd', 'asda', 'asd', 'sadsa', 'RJ', 'asd', 'sadsda', 'sadsad', '0001-11-11', 'sdaas', 'dsad', '558241', 'sadsa', 'sdsa', 0, '15601208145cfd8dee8e7a0.png , 15601208145cfd8dee8ec24.png', '33711'),
+('1254', 10898, 'Roma', '200', '100', '100', 'BraganÃ§a Paulista', 'SP', 'Lindo quadro sobre a Roma antiga', 'FrÃ¡gil', 'Excelente', '2018-06-09', 'Lucas', 'Tecido', '558241', 'Suave', 'Modelo', 0, '15601187595cfd85e747685.png', '33711'),
+('313', 12, 'sdadsa', '12', '12', '12', 'sadasd', 'PE', 'dsa', 'dsaasd', 'sdasda', '1111-11-11', 'dsadsa', 'sa', '558241', 'dsaas', 'saddsa', 0, '', '33711'),
+('443242', 121221, 'dassd', 'dassd', 'sasd', 'asds', 'sasdsda', 'PB', 'ddasdsdsdad', 'sdasdds', 'asddsa', '1111-11-11', 'dsasda', 'sdsda', '558241', 'sdasda', 'sdasda', 0, '', '33711'),
+('78678dsa', 12, 'teste', '112', '12', '12', 'sdaas', 'PE', '1ds', 'sd', 'dsas', '0111-11-11', 'dsa', 'sda', '558241', 'dsa', 'dsa', 0, '15601191055cfd87415ee9d.png', '33711'),
+('asasdsad', 122121, 'asdsad', 'adssadsad', 'sadsad', 'asd', 'sadsad', 'AC', 'dsasad', 'sdasda', 'sadsad', '0000-00-00', 'sadasd', 'sdasd', '558241', 'sadsda', 'sadsda', 0, '15601209365cfd8e68cda4f.png , 15601209365cfd8e68cdf1d.png', '33711');
 
 -- --------------------------------------------------------
 
@@ -105,6 +121,15 @@ CREATE TABLE `local` (
   `descricao` varchar(300) DEFAULT NULL,
   `nome_local` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `local`
+--
+
+INSERT INTO `local` (`idLocal`, `descricao`, `nome_local`) VALUES
+('558241', NULL, 'Sala do Sudeste'),
+('706561', NULL, 'Sala Norte'),
+('910734', NULL, 'Sala Sul');
 
 -- --------------------------------------------------------
 
@@ -180,7 +205,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`cpf`, `senha`, `nome`, `email`, `data_nascimento`, `cidade`, `bairro`, `rua`, `numero`, `complemento`, `cep`, `pergunta`, `resposta`, `tipo`, `id_permissao`) VALUES
-('46920024845', '123', 'Lucas', 'ronaldojr20@hotmail.com', '1998-03-20', 'dasdas', 'ddasd', 'rteste', 15, 'sdadasd', '468547123', 'Nome da mÃ£e', 'selma', 'Administrador', '1');
+('12345', '12345', 'Lucas pacheco', 'lucas@gmail.com', '1994-06-08', 'cidade', 'bairro', 'rua', 20, 'complemento', '1300000', 'Nome da mÃ£e', 'mÃ£e', 'Administrador', '1'),
+('321', '12345', 'Kevon', 'kevin@email.com', '1994-06-08', 'cidade', 'bairro', 'rua', 25, 'complemento', '123457899', 'Comida favorita', 'macarrÃ£o', 'UsuÃ¡rio comum', '2');
 
 --
 -- Indexes for dumped tables
