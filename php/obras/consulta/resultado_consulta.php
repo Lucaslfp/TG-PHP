@@ -13,6 +13,9 @@ $imagens = explode(' , ', $i['img']);
 $colecao = $pdo->query("SELECT * FROM colecao WHERE id_colecao = '{$i["colecao_id"]}'");
 $col = $colecao->fetch();
 
+$secao = $pdo->query("SELECT * FROM local WHERE idLocal = '{$i["secao"]}'");
+$s = $secao->fetch();
+
 ?>
 <html>
     <head>
@@ -46,6 +49,17 @@ $col = $colecao->fetch();
                     <label for='' class="titulos">Técnica<input type="text" id="tecnica" name="item-tecnica" value="<?php echo $i['tecnica']; ?>" /></label>
                     <label for='' class="titulos">Material<input type="text" id=material name="item-material" value="<?php echo $i['material']; ?>" /></label>
                     <label for='' class="titulos">Modelo<input type="text" id="modelo" name="item-modelo" value="<?php echo $i['modelo']; ?>" /></label>
+                    <label for='' class="titulos">Seção
+                        <select class="colecao" name="secao" required>
+                            <option value="<?php echo $s['idLocal'] ?>"><?php echo $s['nome_local']?></option>
+                            <option></option>
+                            <?php
+                                $se = $pdo->query("SELECT * FROM local");
+                                foreach($se->fetchAll() as $secoes) {
+                                    echo "<option value='".$secoes['idLocal']."'>".$secoes['nome_local']."</option>";
+                                }
+                            ?>
+                        </select></label>
                     <label for='' class="titulos">Coleção<span class="error-message msg22">(Selecione uma coleção)</span>
                             <select class="colecao" name="item-colecao" required>
                                 <option value="<?php echo $col['id_colecao'] ?>"><?php echo $col['descricao']?></option>
@@ -61,9 +75,11 @@ $col = $colecao->fetch();
                     <label for='' class="titulos observacoes-obra">Observações<textarea cols="100" rows="5" name="item-obs" class="text-cadastro"><?php echo $i['obs']; ?></textarea></label><br />
                     <label for='' class="titulos">Inserir imagem<input type="file" id="imagem" name="item-img[]" multiple /></label><br />
                     <div class="imagem-obra">
-                        <?php 
+                        <?php
+                            $cont = 1;
                             foreach($imagens as $img) {
-                                
+                                echo '<div class="area-imagem spot'.$cont.'"><img src="'.SITEBASE.'php/obras/imagens_obras/'.$img.'" /></div>';
+                                $cont++;
                             }
                         ?>
                     </div>
