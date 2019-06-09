@@ -376,7 +376,7 @@ $(document).ready(function() {
 function ConsultFields() {
     //verificando o numero limite de boxes;
     $("input[name=check]").change(function(){
-        var maxChecks = 3;
+        var maxChecks = 2;
         if( $("input[name=check]:checked").length == maxChecks ){
             $("input[name=check]").attr('disabled', 'disabled');
             $("input[name=check]:checked").removeAttr('disabled');
@@ -393,22 +393,22 @@ function ConsultFields() {
         if(!$this.hasClass('is--checked')) {
             switch (Fields) {
                 case 'titul':
-                    $('.titulos.db').before('<label for="" class="titulos">Objeto<input type="text" id="titul" name="objeto" placeholder="Título/nome da obra" /></label>');
+                    $('.titulos.db').before('<label for="" class="titulos">Objeto<input type="text" id="titul" name="titulo" placeholder="Título/nome da obra" /></label>');
                     break;
                 case 'regist':
-                    $('.titulos.db').before('<label for="" class="titulos">Código<input type="text" id="regist" name="codigo" placeholder="Código de registro da obra" /></label>');
+                    $('.titulos.db').before('<label for="" class="titulos">Código<input type="text" id="regist" name="id_item" placeholder="Código de registro da obra" /></label>');
                     break;
                 case 'tom':
                     $('.titulos.db').before('<label for="" class="titulos">Tombo<input type="text" id="tom" name="tombo" placeholder="Tombo da obra" /></label>');
                     break;
                 case 'collection':
-                    $('.titulos.db').before('<label for="" class="titulos">Material<input type="text" id="collection" name="material" /></label>');
+                    $('.titulos.db').before('<label for="" class="titulos">Coleção<input type="text" id="collection" name="colecao_id" /></label>');
                     break;
                 case 'init':
-                    $('.titulos.db').before('<label for="" class="titulos">Data de criação<input type="date" id="init" name="data-criacao" /></label>');
+                    $('.titulos.db').before('<label for="" class="titulos">Data de criação<input type="date" id="init" name="data_criacao" /></label>');
                     break;
                 case 'sect':
-                    $('.titulos.db').before('<label for="" class="titulos">Seção<select id="sect"><option class="opt6">---</option></select></label>');
+                    $('.titulos.db').before('<label for="" class="titulos">Seção<input type="text" id="secao" name="secao" /></label>');
             }
             $this.addClass('is--checked');
         } else {

@@ -7,6 +7,53 @@ if (isset($_SESSION)) {
         header('Location: ./../../../login.php');
 }
 
+if (isset($_POST)) {
+    $co = '';
+    $se = '';
+
+    if (!empty($_POST['colecao_id'])) {
+        $c_id = $_POST['colecao_id'];
+
+        $c = $pdo->query("SELECT * FROM colecao WHERE descricao = '{$c_id}'");
+        
+        $co = $c->fetch();
+    }
+
+    if (!empty($_POST['secao'])) {
+        $s_id = $_POST['secao'];
+
+        $s = $pdo->query("SELECT * FROM local WHERE nome_local = '{$s_id}'");
+        
+        $se = $s->fetch();
+    }
+
+    $campos = array();
+
+    if (isset($_POST['titulo']))
+        $campos[] = 'titulo = ' . $_POST['titulo'];
+    if (isset($_POST['tombo']))
+        $campos[] = 'tombo = ' . $_POST['tombo'];
+    if (isset($_POST['id_item']))
+        $campos[] = 'id_item = ' . $_POST['id_item'];
+    if (isset($_POST['colecao_id']))
+        $campos[] = 'colecao_id = ' . $co['id_colecao'];
+    if (isset($_POST['data_criacao']))
+        $campos[] = 'data_criacao = ' . $_POST['data_criacao'];
+    if (isset($_POST['secao']))
+        $campos[] = 'secao = ' . $se['idLocal'];
+
+
+    $dados = implode(" AND ", $campos);
+
+    $sql = $pdo->query("SELECT * FROM item WHERE {$dados}");
+
+    echo "SELECT * FROM item WHERE {$dados}";
+
+    if (!$sql) {
+        echo "<script>alert('Nenhum resultado encontrado.'); window.location.href = './../../../consulta.php'</script>";
+    }
+}
+
 ?>
 <html>
 
@@ -33,7 +80,7 @@ if (isset($_SESSION)) {
                         </tr>
 
                         <?php
-                        foreach ($_SESSION['result_consulta'] as $r) {
+                        foreach ($sql->fetchAll() as $r) {
                             $imagens = explode(' , ', $r['img']);
                             ?>
                             <tr>

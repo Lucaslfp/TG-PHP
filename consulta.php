@@ -25,25 +25,16 @@ $listar = $pdo->query('SELECT * FROM colecao');
             <div class="row background">
                 <div class="aba-5 col-md-12">
                     <h3>Consulta de obras</h3>
-                    <div class="check-list">
-                        <label for="checks">Objeto</label><input class="checkboxes" type="checkbox" id="titul" name="check">
-                        <label for="checks">Código</label><input class="checkboxes" type="checkbox" id="regist" name="check">
-                        <label for="checks">Tombo</label><input class="checkboxes" type="checkbox" id="tom" name="check">
-                        <label for="checks">Material</label><input class="checkboxes" type="checkbox" id="collection" name="check">
-                        <label for="checks">Data de criação</label><input class="checkboxes" type="checkbox" id="init" name="check">
-                        <label for="checks">Seção</label><input class="checkboxes" type="checkbox" id="sect" name="check">
-                    </div>
-                    <form id="consultar-obras" action="./php/obras/funcoes-obras.php?param=consulta" method="POST" enctype="multipart/form-data">
-                        <label for='' class="titulos db">Coleção
-                            <select class="colecao" name="item-colecao">
-                                <option></option>
-                                <?php 
-                                    foreach($listar->fetchAll() as $col_obras) {
-                                        echo "<option value='".$col_obras['id_colecao']."'>".$col_obras['descricao']."</option>";
-                                    }
-                                ?>
-                            </select>
-                        </label>
+                    <form id="consultar-obras" action="./php/obras/consulta/resultado.php" method="POST">
+                        <div class="check-list">
+                            <label for="checks">Objeto</label><input class="checkboxes" type="checkbox" id="titul" name="check">
+                            <label for="checks">Código</label><input class="checkboxes" type="checkbox" id="regist" name="check">
+                            <label for="checks">Tombo</label><input class="checkboxes" type="checkbox" id="tom" name="check">
+                            <label for="checks">Coleção</label><input class="checkboxes" type="checkbox" id="collection" name="check">
+                            <label for="checks">Data de criação</label><input class="checkboxes" type="checkbox" id="init" name="check">
+                            <label for="checks">Seção</label><input class="checkboxes" type="checkbox" id="sect" name="check">
+                        </div>
+                        <label for='' class="titulos db"></label>
                         <input type="submit" id="busc" name="item-buscar" value="Buscar">
                         <span id="cancelar-6"><a href="home.php">Cancelar</a></span>
                     </form>
