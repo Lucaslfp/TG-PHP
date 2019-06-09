@@ -95,6 +95,8 @@ else if ($parametro == "editar") {
     $imagem = $_FILES['item-img'];
     $numArquivo = count(array_filter($imagem['name']));
 
+    $novoNome = array();
+
     for ($i = 0; $i < $numArquivo; $i++) {
         $obra_tmp = $imagem['tmp_name'][$i];
         $nome = $imagem[ 'name' ][$i];
