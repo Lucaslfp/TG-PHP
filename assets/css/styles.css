@@ -823,6 +823,18 @@ label.historico-obra, label.historico-obra textarea, label.observacoes-obra {
     text-align: center;
     cursor: pointer;
 }
+.consultar .check-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.consultar .check-list label {
+    box-shadow: none!important;
+    margin: 0;
+}
+.consultar .check-list input {
+    box-shadow: none!important;
+}
 /*-----FIM TELA DE CONSULTA E RELATÓRIO-----*/
 
 /*-----FOOTER-----*/

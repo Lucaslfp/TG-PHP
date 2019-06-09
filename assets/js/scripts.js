@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+    ConsultFields();
+
     /*-----TELA DE LOGIN-----*/
     /*Mostrar e esconder telas ocultas */
     $("#login-sistema .register-new-user").on("click", function() {
@@ -368,4 +371,50 @@ $(document).ready(function() {
     $(document).on('change','.cadastrar input[type="file"], .consultar input[type="file"]', function(){
         addImagePreview(this);
     });
-})
+});
+
+function ConsultFields() {
+    //verificando o numero limite de boxes;
+    $("input[name=check]").change(function(){
+        var maxChecks = 3;
+        if( $("input[name=check]:checked").length == maxChecks ){
+            $("input[name=check]").attr('disabled', 'disabled');
+            $("input[name=check]:checked").removeAttr('disabled');
+        } else {
+             $("input[name=check]").removeAttr('disabled');
+        }
+    });
+
+    //adicionando e removendo as boxes;
+    $('.checkboxes').on('click', function() { 
+        var $this = $(this);
+        var Fields = $this.attr('id');
+
+        if(!$this.hasClass('is--checked')) {
+            switch (Fields) {
+                case 'titul':
+                    $('.titulos.db').before('<label for="" class="titulos">Objeto<input type="text" id="titul" name="objeto" placeholder="Título/nome da obra" /></label>');
+                    break;
+                case 'regist':
+                    $('.titulos.db').before('<label for="" class="titulos">Código<input type="text" id="regist" name="codigo" placeholder="Código de registro da obra" /></label>');
+                    break;
+                case 'tom':
+                    $('.titulos.db').before('<label for="" class="titulos">Tombo<input type="text" id="tom" name="tombo" placeholder="Tombo da obra" /></label>');
+                    break;
+                case 'collection':
+                    $('.titulos.db').before('<label for="" class="titulos">Material<input type="text" id="collection" name="material" /></label>');
+                    break;
+                case 'init':
+                    $('.titulos.db').before('<label for="" class="titulos">Data de criação<input type="date" id="init" name="data-criacao" /></label>');
+                    break;
+                case 'sect':
+                    $('.titulos.db').before('<label for="" class="titulos">Seção<select id="sect"><option class="opt6">---</option></select></label>');
+            }
+            $this.addClass('is--checked');
+        } else {
+            $this.removeClass('is--checked');
+            $this.parents('.aba-5.col-md-12').find('.titulos input[id='+ Fields +']').parent().remove();
+            $this.parents('.aba-5.col-md-12').find('.titulos select[id='+ Fields +']').parent().remove();
+        }
+    });
+}
