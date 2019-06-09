@@ -25,23 +25,15 @@ $listar = $pdo->query('SELECT * FROM colecao');
             <div class="row background">
                 <div class="aba-5 col-md-12">
                     <h3>Consulta de obras</h3>
+                    <div class="check-list">
+                        <label for="checks">Objeto</label><input class="checkboxes" type="checkbox" id="titul" name="check">
+                        <label for="checks">Código</label><input class="checkboxes" type="checkbox" id="regist" name="check">
+                        <label for="checks">Tombo</label><input class="checkboxes" type="checkbox" id="tom" name="check">
+                        <label for="checks">Material</label><input class="checkboxes" type="checkbox" id="collection" name="check">
+                        <label for="checks">Data de criação</label><input class="checkboxes" type="checkbox" id="init" name="check">
+                        <label for="checks">Seção</label><input class="checkboxes" type="checkbox" id="sect" name="check">
+                    </div>
                     <form id="consultar-obras" action="./php/obras/funcoes-obras.php?param=consulta" method="POST" enctype="multipart/form-data">
-                        <label for='' class="titulos">Objeto<input type="text" id="titul" name="objeto" placeholder="Título/nome da obra" /></label>
-                        <label for='' class="titulos">Código<input type="text" id="regist" name="codigo" placeholder="Código de registro da obra" /></label>
-                        <label for='' class="titulos">Tombo<input type="text" id="tom" name="tombo" placeholder="Tombo da obra" /></label>
-                        <label for='' class="titulos dimensoes-obra">Dimensões <br /> 
-                            <input type="text" id="altura" name="altura" placeholder="Altura" /> 
-                            <input type="text" id="largura" class="margin-vertical" name="largura" placeholder="Largura" /> 
-                            <input type="text" id="profundidade" name="profundidade" placeholder="Profundidade" />
-                        </label>
-                        <label for='' class="titulos">Material<input type="text" id="collection" name="material" /></label>
-                        <label for='' class="titulos">Data de criação<input type="date" id="init" name="data-criacao" /></label>
-                        <!-- <label for='' class="titulos">Período final<input type="date" id="fim" name="data-fim" /></label> -->
-                        <label for='' class="titulos">Seção
-                            <select id="sect">
-                                <option class="opt6">---</option>
-                            </select>
-                        </label>
                         <label for='' class="titulos db">Coleção
                             <select class="colecao" name="item-colecao">
                                 <option></option>
