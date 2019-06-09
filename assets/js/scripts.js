@@ -375,6 +375,7 @@ $(document).ready(function() {
 });
 
 function ConsultFields() {
+    //verificando o numero limite de boxes;
     $("input[name=check]").change(function(){
         var maxChecks = 3;
         if( $("input[name=check]:checked").length == maxChecks ){
@@ -384,6 +385,8 @@ function ConsultFields() {
              $("input[name=check]").removeAttr('disabled');
         }
     });
+
+    //adicionando e removendo as boxes;
     $('.checkboxes').on('click', function() { 
         var $this = $(this);
         var Fields = $this.attr('id');
