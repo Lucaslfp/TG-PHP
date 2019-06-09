@@ -181,56 +181,56 @@ else if ($parametro == 'consulta') {
 else if ($parametro == "editar") {
     $id = addslashes($_GET['id']);
 
-    if (isset($_FILES['item-img'])) {
-        $imagem = $_FILES['item-img'];
-        $numArquivo = count(array_filter($imagem['name']));
+    echo "<script>console.log('entrei')</script>";
+    $imagem = $_FILES['item-img'];
+    $numArquivo = count(array_filter($imagem['name']));
 
-        for ($i = 0; $i < $numArquivo; $i++) {
-            $obra_tmp = $imagem['tmp_name'][$i];
-            $nome = $imagem[ 'name' ][$i];
+    for ($i = 0; $i < $numArquivo; $i++) {
+        $obra_tmp = $imagem['tmp_name'][$i];
+        $nome = $imagem[ 'name' ][$i];
         
-            $extensao = pathinfo ($nome, PATHINFO_EXTENSION);  
-            $extensao = strtolower ($extensao);
+        $extensao = pathinfo ($nome, PATHINFO_EXTENSION);  
+        $extensao = strtolower ($extensao);
         
-            if (strstr('.jpg;.jpeg;.gif;.png', $extensao)) {
-                $novoNome[] = uniqid ( time () ) . '.' . $extensao;
-                $destino = 'imagens_obras/' . $novoNome[$i];
-                move_uploaded_file($obra_tmp, $destino);
-            }
-
-            else {
-                echo "<script>alert('Tipo de arquivo inválido.'); window.location = history.go(-1);</script>";
-            } 
+        if (strstr('.jpg;.jpeg;.gif;.png', $extensao)) {
+            $novoNome[] = uniqid ( time () ) . '.' . $extensao;
+            $destino = 'imagens_obras/' . $novoNome[$i];
+            move_uploaded_file($obra_tmp, $destino);
         }
 
-        $img_obra = implode(" , ", $novoNome);
-
-        $editar = $pdo->query("UPDATE item 
-            SET 
-                titulo = '{$_POST["item-titulo"]}',
-                tombo = '{$_POST["item-tombo"]}',
-                altura = '{$_POST["item-altura"]}',
-                largura = '{$_POST["item-largura"]}',
-                profundidade = '{$_POST["item-profundidade"]}',
-                descricao = '{$_POST["item-descricao"]}',
-                data_criacao = '{$_POST["item-data"]}',
-                autor_descobridor = '{$_POST["item-autor"]}',
-                conservacao = '{$_POST["item-estado"]}',
-                cidade = '{$_POST["item-cidade"]}',
-                estado = '{$_POST["item-uf"]}',
-                tecnica = '{$_POST["item-tecnica"]}',
-                material = '{$_POST["item-material"]}',
-                modelo = '{$_POST["item-modelo"]}',
-                colecao_id = '{$_POST["item-colecao"]}',
-                obs = '{$_POST["item-obs"]}'
-            WHERE id_item = '{$id}'");
-
-        if ($editar) {
-            echo "<script>alert('Dados atualizados com sucesso'); window.location.href = './consulta/resultado.php'</script>";
-        }
         else {
-            echo "<script>alert('Erro ao atualizar os dados'); window.location = history.go(-1);</script>";
-        }
+            echo "<script>alert('Tipo de arquivo inválido.'); window.location = history.go(-1);</script>";
+        } 
+    }
+
+    $img_obra = implode(" , ", $novoNome);
+
+    $editar = $pdo->query("UPDATE item 
+        SET 
+            titulo = '{$_POST["item-titulo"]}',
+            tombo = '{$_POST["item-tombo"]}',
+            altura = '{$_POST["item-altura"]}',
+            largura = '{$_POST["item-largura"]}',
+            profundidade = '{$_POST["item-profundidade"]}',
+            descricao = '{$_POST["item-descricao"]}',
+            data_criacao = '{$_POST["item-data"]}',
+            autor_descobridor = '{$_POST["item-autor"]}',
+            conservacao = '{$_POST["item-estado"]}',
+            cidade = '{$_POST["item-cidade"]}',
+            estado = '{$_POST["item-uf"]}',
+            tecnica = '{$_POST["item-tecnica"]}',
+            material = '{$_POST["item-material"]}',
+            modelo = '{$_POST["item-modelo"]}',
+            colecao_id = '{$_POST["item-colecao"]}',
+            obs = '{$_POST["item-obs"]}',
+            img = '{$img_obra}'
+        WHERE id_item = '{$id}'");
+
+    if ($editar) {
+        echo "<script>alert('Dados atualizados com sucesso'); window.location.href = './consulta/resultado.php'</script>";
+    }
+    else {
+        echo "<script>alert('Erro ao atualizar os dados'); window.location = history.go(-1);</script>";
     }
 }
 

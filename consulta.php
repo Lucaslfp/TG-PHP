@@ -28,7 +28,7 @@ $listar = $pdo->query('SELECT * FROM colecao');
                 </div>
                 <div class="aba-5 col-md-12">
                     <h3>Consulta de obras</h3>
-                    <form id="consultar-obras" action="./php/obras/funcoes-obras.php?param=consulta" method="POST">
+                    <form id="consultar-obras" action="./php/obras/funcoes-obras.php?param=consulta" method="POST" enctype="multipart/form-data">
                         <label for='' class="titulos">Objeto<input type="text" id="titul" name="objeto" placeholder="Título/nome da obra" /></label>
                         <label for='' class="titulos">Código<input type="text" id="regist" name="codigo" placeholder="Código de registro da obra" /></label>
                         <label for='' class="titulos">Tombo<input type="text" id="tom" name="tombo" placeholder="Tombo da obra" /></label>

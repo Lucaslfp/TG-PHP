@@ -28,7 +28,7 @@ $col = $colecao->fetch();
         <div class="container">
             <div class="aba-1 col-md-12" style="display: block;">
                 <h3>Resultado da consulta</h3>
-                <form id="cadastro-obra" action="./../funcoes-obras.php?param=editar&id=<?php echo $id; ?>" method="POST">
+                <form id="cadastro-obra" action="./../funcoes-obras.php?param=editar&id=<?php echo $id; ?>" method="POST" enctype="multipart/form-data">
                     <label for='codigo' class="titulos">Código<input type="text" id="codigo" name="item-cod" value="<?php echo $i['id_item']; ?>" readonly /></label>
                     <label for='titulo' class="titulos">Título<input type="text" id="titulo" name="item-titulo" value="<?php echo $i['titulo']; ?>" /></label>
                     <label for='tombo' class="titulos">Tombo<input type="number" id="tombo" name="item-tombo" value="<?php echo $i['tombo']; ?>" /></label>

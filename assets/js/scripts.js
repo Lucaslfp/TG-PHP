@@ -366,7 +366,7 @@ $(document).ready(function() {
             reader.readAsDataURL(input.files[3]);
         }
     }
-    $(document).on('change','.cadastrar input[type="file"]', function(){
+    $(document).on('change','.cadastrar input[type="file"], .consultar input[type="file"]', function(){
         addImagePreview(this);
     });
 })
