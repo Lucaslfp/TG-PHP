@@ -90,8 +90,6 @@ else if ($parametro == 'consulta') {
 
     $_SESSION['result_consulta'] = [];
 
-    $result = [];
-
     $consulta = [
         "objeto" => $_POST['objeto'],
         "codigo" => $_POST['codigo'],

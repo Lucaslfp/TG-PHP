@@ -115,19 +115,42 @@ if (isset($_SESSION)) {
                 </div>
                 <div class="aba-2 col-md-12">
                     <h3>Cadastro de Seção</h3>
-                    <form id="cadastro-secao" action="" method="POST">
-                        <label for='' class="titulos">Espaço físico<span class="error-message msg24">(Digite uma seção)</span><input type="text" id="secao-id" name="secao-nome" placeholder="Nome da Seção" /></label>
+                    <form id="cadastro-secao" action="./php/secao/funcoes-secao.php?param=criar" method="POST">
+                        <label for='' class="titulos">Espaço físico<input type="text" id="secao-id" name="nome-secao" placeholder="Nome da Seção" required /></label>
                         <br />
                         <input type="submit" id="salvar2" name="item-salvar2" value="Salvar">
                         <span id="cancelar-3">Cancelar</span>
                         <div id="sec-cadastradas">
                             <h3>Seções cadastradas</h3>
                             <div class="sec">
-                                <span class="icons">
-                                    <img src="assets/img/icon x.png" alt="x" class="icon-x" />
-                                    <img src="assets/img/pencil.png" alt="edit" class="pencil" />
-                                </span>
-                                <span class="itens2"></span>
+                                <table class="table">
+                                    <tr>
+                                        <th>ID DA SEÇÃO</th>
+                                        <th>NOME DA SEÇÃO</th>
+                                    </tr>
+
+                                    <?php
+                                    $locais = $pdo->query('SELECT * FROM local');
+                                    foreach($locais->fetchAll() as $l) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $l['idLocal']; ?></td>
+                                        <td><?php echo $l['nome_local']; ?></td>
+    
+                                        <td class="icons">
+                                            <a href="./php/secao/funcoes-secao.php?param=excluir&id=<?php echo $l['idLocal']?>" onclick="return confirm('Deseja mesmo excluir?')">
+                                                <img src="assets/img/icon x.png" alt="x" class="icon-x" />
+                                            </a>
+                                        </td>
+
+                                        <td class="icons">
+                                            <a class="editar_secao" data-toggle="modal" data-doc="<?php echo $l['idLocal']; ?>" data-target="#myModal">
+                                                <img src="assets/img/pencil.png" alt="edit" class="pencil" />
+                                            </a>
+                                        </td>
+                                    </tr>                            
+                                    <?php } ?>
+                                </table>
                             </div>
                         </div>
                     </form>
@@ -188,7 +211,7 @@ if (isset($_SESSION)) {
 
                     <div class="modal-body">
                         <form method="POST">
-                            <input type="text" class="titulos titulo-modal" name="nome_colecao" placeholder="Digite o novo nome para a coleção" />
+                            <input type="text" class="titulos titulo-modal" name="novo_nome" placeholder="Digite o novo nome" />
                             
                             <input type="submit" name="enviar" class="btn btn-primary" />
                         </form>

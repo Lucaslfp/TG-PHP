@@ -22,7 +22,7 @@ if ($parametro == 'criar_colecao') {
 
 else if ($parametro == 'editar_colecao') {
     $id = addslashes($_GET['id']);
-    $desc = addslashes($_POST['nome_colecao']);
+    $desc = addslashes($_POST['novo_nome']);
 
     $editar = $pdo->query("UPDATE colecao SET descricao = '{$desc}' WHERE id_colecao = '{$id}'");
 

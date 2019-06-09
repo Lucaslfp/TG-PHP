@@ -297,6 +297,17 @@ $(document).ready(function() {
        $('.modal-body form').attr('action', linkForm);
     });
 
+    $('.editar_secao').on('click', function() {
+        var idColecao = $(this).attr('data-doc');
+        var linkForm = './php/secao/funcoes-secao.php?param=editar&id=' + idColecao;
+
+        console.log(idColecao);
+        console.log(linkForm);
+        
+        $('.modal-header h4').text('Editar Seção - ' + idColecao);
+        $('.modal-body form').attr('action', linkForm);
+    });
+
     /*Fim mensagens de inputs vazios na tela de cadastro de coleção*/
     /*------TELA DE CADASTROS-----*/
     

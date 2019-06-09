@@ -16,8 +16,13 @@ $nome = !empty($_SESSION['nome']) ? $_SESSION['nome'] : '';
                         <a href="<?php echo SITEBASE; ?>php/usuario/funcoes-user.php?param=logout"><span class="sair">Sair</span></a>
                         <div class="user-options">
                             <a href="<?php echo SITEBASE; ?>php/usuario/editar.php">Editar perfil</a>
+                            <?php
+                            if (isset($_SESSION)) {
+                                if ($_SESSION['logado'] == 'logado' && $_SESSION['nivel'] == 'Administrador') {
+                            ?>
                             <a href="<?php echo SITEBASE; ?>php/usuario/listar.php">Gerenciar Usuários</a>
                             <a href="<?php echo SITEBASE; ?>cadastrar-usuario.php">Cadastrar novo usuário</a>
+                            <?php } } ?>
                         </div>
                     <?php } else { ?>
                         <a href="<?php echo SITEBASE; ?>login.php"><span class="sair">Entrar</span></a>
