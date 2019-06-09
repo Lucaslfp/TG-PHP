@@ -1,5 +1,5 @@
 <?php 
-include_once 'common.php'; 
+include_once './common.php'; 
 include_once './php/banco.php';
 
 if (isset($_SESSION)) {
@@ -16,11 +16,11 @@ $listar = $pdo->query('SELECT * FROM colecao');
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="assets/img/museum-icon.png" />
-        <?php include_once 'common/styles.php'; ?>
+        <?php include_once './common/styles.php'; ?>
     </head>
 
     <body class="consultar">
-        <?php include_once 'common/header.php'; ?>
+        <?php include_once './common/header.php'; ?>
         <div class="container">
             <div class="row background">
                 <div class="aba-5 col-md-12">
@@ -28,7 +28,7 @@ $listar = $pdo->query('SELECT * FROM colecao');
                     <form id="consultar-obras" action="./php/obras/funcoes-obras.php?param=consulta" method="POST" enctype="multipart/form-data">
                         <label for='' class="titulos">Objeto<input type="text" id="titul" name="objeto" placeholder="Título/nome da obra" /></label>
                         <label for='' class="titulos">Código<input type="text" id="regist" name="codigo" placeholder="Código de registro da obra" /></label>
-                        <label for='' class="titulos">Tombo<input type="text" id="tom" name="tombo" placeholder="Tombo da obra" /></label>
+                        <label for='' class="titulos">Tombo<input type="number" id="tom" name="tombo" placeholder="Tombo da obra" /></label>
                         <label for='' class="titulos dimensoes-obra">Dimensões <br /> 
                             <input type="text" id="altura" name="altura" placeholder="Altura" /> 
                             <input type="text" id="largura" class="margin-vertical" name="largura" placeholder="Largura" /> 
@@ -36,10 +36,15 @@ $listar = $pdo->query('SELECT * FROM colecao');
                         </label>
                         <label for='' class="titulos">Material<input type="text" id="collection" name="material" /></label>
                         <label for='' class="titulos">Data de criação<input type="date" id="init" name="data-criacao" /></label>
-                        <!-- <label for='' class="titulos">Período final<input type="date" id="fim" name="data-fim" /></label> -->
                         <label for='' class="titulos">Seção
                             <select id="sect">
-                                <option class="opt6">---</option>
+                                <option></option>
+                                    <?php
+                                        $c = $pdo->query("SELECT * FROM local");
+                                        foreach($c->fetchAll() as $s) {
+                                            echo "<option value='".$s['idLocal']."'>".$s['nome_local']."</option>";
+                                        }
+                                    ?>
                             </select>
                         </label>
                         <label for='' class="titulos db">Coleção
@@ -58,9 +63,9 @@ $listar = $pdo->query('SELECT * FROM colecao');
                 </div>
             </div>
         </div>
-        <?php include_once 'common/footer.php'; ?>
+        <?php include_once './common/footer.php'; ?>
 
-        <?php include_once 'common/scripts.php'; ?>
+        <?php include_once './common/scripts.php'; ?>
     </body>
 
 </html>
