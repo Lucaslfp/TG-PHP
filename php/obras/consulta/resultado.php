@@ -7,7 +7,7 @@ if (isset($_SESSION)) {
         header('Location: ./../../../login.php');
 }
 
-if (isset($_POST)) {
+if (isset($_POST) && !empty($_POST)) {
     $co = '';
     $se = '';
 
@@ -58,6 +58,10 @@ if (isset($_POST)) {
         echo "<script>alert('Nenhum resultado encontrado.'); window.location.href = './../../../consulta.php'</script>";
     }
         $_SESSION['resultados'] = $sql2->fetchAll();
+}
+
+else {
+    echo "<script>alert('Nenhum parametro enviado'); window.location.href = './../../../consulta.php'</script>";
 }
 
 ?>
