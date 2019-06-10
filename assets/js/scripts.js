@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     ConsultFields();
-
+    removeNullImage();
     /*-----TELA DE LOGIN-----*/
     /*Mostrar e esconder telas ocultas */
     $("#login-sistema .register-new-user").on("click", function() {
@@ -417,4 +417,14 @@ function ConsultFields() {
             $this.parents('.aba-5.col-md-12').find('.titulos select[id='+ Fields +']').parent().remove();
         }
     });
+}
+
+function removeNullImage() {
+    if($('body').hasClass('cadastrar')) {
+        var srcImage = $('.table td img').first().attr('src').split('/').pop();
+        if (!srcImage.match( /(jpg|png)/ ) ) {
+            $('.table td img').first().remove();
+            $('.table tr th:nth-child(3)').remove();
+        }
+    }
 }
