@@ -91,7 +91,6 @@ if ($parametro == "cadastro") {
 else if ($parametro == "editar") {
     $id = addslashes($_GET['id']);
 
-    echo "<script>console.log('entrei')</script>";
     $imagem = $_FILES['item-img'];
     $numArquivo = count(array_filter($imagem['name']));
 

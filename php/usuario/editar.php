@@ -63,12 +63,17 @@ $listar = $l->fetch();
                                 <option class="opt" name="Escola onde estudou" value="Escola onde estudou">Escola onde estudou</option>
                             </select></p><br />
                         <p class="titulos">Resposta<input type="text" id="nova-resposta-secreta" name="resposta" placeholder="Resposta para a pergunta secreta" required  value="<?php echo $listar['resposta']; ?>" /></p><br />
+                        
+                        <?php 
+                        if ($_SESSION['nivel'] == 'Administrador') {
+                        ?>
                         <p class="titulos">Nível de permissão no sistema<select id="permissao" name="nivel">
                                 <option class="opt1" value="<?php echo $listar['tipo']; ?>"><?php echo $listar['tipo']; ?></option>
                                 <option class="opt"></option>
                                 <option class="opt1" value="Administrador">Administrador</option>
                                 <option class="opt1" value="Usuario Comum">Usuário comum</option>
                             </select></p><br />
+                        <?php } ?>
                         <input type="submit" id="cadastrar" name="fazer-cadastro" value="Atualizar" />
                         <a href="<?php echo SITEBASE; ?>" id="cancelar">Cancelar</a>
                     </form>
