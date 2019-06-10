@@ -51,13 +51,13 @@ if (isset($_POST)) {
     $sql = $pdo->query("SELECT * FROM item WHERE {$dados}");
 
     $sql2 = $pdo->query("SELECT * FROM item WHERE {$dados}");
-    $_SESSION['resultados'] = $sql2->fetchAll();
-
+    
     // echo "SELECT * FROM item WHERE {$dados}";
 
-    if (!$sql) {
+    if (!$sql && !$sql2) {
         echo "<script>alert('Nenhum resultado encontrado.'); window.location.href = './../../../consulta.php'</script>";
     }
+        $_SESSION['resultados'] = $sql2->fetchAll();
 }
 
 ?>
