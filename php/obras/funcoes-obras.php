@@ -116,27 +116,54 @@ else if ($parametro == "editar") {
 
     $img_obra = implode(" , ", $novoNome);
 
-    $editar = $pdo->query("UPDATE item 
-        SET 
-            titulo = '{$_POST["item-titulo"]}',
-            tombo = '{$_POST["item-tombo"]}',
-            altura = '{$_POST["item-altura"]}',
-            largura = '{$_POST["item-largura"]}',
-            profundidade = '{$_POST["item-profundidade"]}',
-            descricao = '{$_POST["item-descricao"]}',
-            data_criacao = '{$_POST["item-data"]}',
-            autor_descobridor = '{$_POST["item-autor"]}',
-            conservacao = '{$_POST["item-estado"]}',
-            cidade = '{$_POST["item-cidade"]}',
-            estado = '{$_POST["item-uf"]}',
-            tecnica = '{$_POST["item-tecnica"]}',
-            material = '{$_POST["item-material"]}',
-            secao = '{$_POST["secao"]}',
-            modelo = '{$_POST["item-modelo"]}',
-            colecao_id = '{$_POST["item-colecao"]}',
-            obs = '{$_POST["item-obs"]}',
-            img = '{$img_obra}'
-        WHERE id_item = '{$id}'");
+    $editar = '';
+
+    if ($img_obra != '') {
+        $editar = $pdo->query("UPDATE item 
+            SET 
+                titulo = '{$_POST["item-titulo"]}',
+                tombo = '{$_POST["item-tombo"]}',
+                altura = '{$_POST["item-altura"]}',
+                largura = '{$_POST["item-largura"]}',
+                profundidade = '{$_POST["item-profundidade"]}',
+                descricao = '{$_POST["item-descricao"]}',
+                data_criacao = '{$_POST["item-data"]}',
+                autor_descobridor = '{$_POST["item-autor"]}',
+                conservacao = '{$_POST["item-estado"]}',
+                cidade = '{$_POST["item-cidade"]}',
+                estado = '{$_POST["item-uf"]}',
+                tecnica = '{$_POST["item-tecnica"]}',
+                material = '{$_POST["item-material"]}',
+                secao = '{$_POST["secao"]}',
+                modelo = '{$_POST["item-modelo"]}',
+                colecao_id = '{$_POST["item-colecao"]}',
+                obs = '{$_POST["item-obs"]}',
+                img = '{$img_obra}'
+            WHERE id_item = '{$id}'");
+    }
+
+    else {
+        $editar = $pdo->query("UPDATE item 
+            SET 
+                titulo = '{$_POST["item-titulo"]}',
+                tombo = '{$_POST["item-tombo"]}',
+                altura = '{$_POST["item-altura"]}',
+                largura = '{$_POST["item-largura"]}',
+                profundidade = '{$_POST["item-profundidade"]}',
+                descricao = '{$_POST["item-descricao"]}',
+                data_criacao = '{$_POST["item-data"]}',
+                autor_descobridor = '{$_POST["item-autor"]}',
+                conservacao = '{$_POST["item-estado"]}',
+                cidade = '{$_POST["item-cidade"]}',
+                estado = '{$_POST["item-uf"]}',
+                tecnica = '{$_POST["item-tecnica"]}',
+                material = '{$_POST["item-material"]}',
+                secao = '{$_POST["secao"]}',
+                modelo = '{$_POST["item-modelo"]}',
+                colecao_id = '{$_POST["item-colecao"]}',
+                obs = '{$_POST["item-obs"]}'
+            WHERE id_item = '{$id}'");
+    }
 
     if ($editar) {
         echo "<script>alert('Dados atualizados com sucesso'); window.location.href = './../../consulta.php'</script>";
