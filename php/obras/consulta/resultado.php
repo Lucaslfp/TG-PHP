@@ -78,7 +78,7 @@ if (isset($_POST)) {
             <h3>Resultado da consulta</h3>
             <div id="cole-cadastrados">
                 <div class="collecti" style="display:block;">
-                    <a href="./imprimir_resultados.php" target="_blank" class="btn btn-info">Imprimir Resultados</a>
+                    <a href="./imprimir_resultados.php" target="_blank" class="btn btn-info imprimir-resultados">Imprimir Resultados</a>
                     <table class="table">
                         <tr>
                             <th>ID DO ITEM</th>
