@@ -752,6 +752,19 @@ label.historico-obra, label.historico-obra textarea, label.observacoes-obra {
     margin-bottom: 23px;
     cursor: pointer;
 }
+.consultar #buscar-todos {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    width: 128px;
+    margin-top: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    background: #007bff;
+    box-shadow: 2px 2px 2px #696969;
+    margin-bottom: 23px;
+    cursor: pointer;
+}
 .consultar #cancelar-6 {
     border-radius: 5px;
     border: none;

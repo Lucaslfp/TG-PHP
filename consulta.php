@@ -36,6 +36,7 @@ $listar = $pdo->query('SELECT * FROM colecao');
                         </div>
                         <label for='' class="titulos db"></label>
                         <input type="submit" id="busc" name="item-buscar" value="Buscar">
+                        <input type="submit" id="buscar-todos" name="buscar-todos" value="Buscar todos">
                         <span id="cancelar-6"><a href="home.php">Cancelar</a></span>
                     </form>
                 </div>
