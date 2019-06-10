@@ -538,13 +538,13 @@ label input, label select, .modal-body .titulo-modal {
 label.historico-obra, label.historico-obra textarea, label.observacoes-obra {
     width: 100% !important; 
 }
-.cadastrar #imagem {
+#imagem {
     width: 100%;
     outline: none;
     border-radius: 5px;
     padding: 10px;
 }
-.cadastrar .area-imagem {
+.area-imagem {
     margin: 2% 1%;
     display: inline-block;
     width: 23%;
@@ -556,7 +556,7 @@ label.historico-obra, label.historico-obra textarea, label.observacoes-obra {
     background: #fff;
     box-shadow: 2px 2px 2px #696969;
 }
-.cadastrar .area-imagem {
+.area-imagem {
     margin-right:5px;
 }
 .cadastrar .button {
@@ -867,3 +867,7 @@ footer .brasao img {
     margin: 0 2%;
 }
 /*-----FIM FOOTER-----*/
+
+.imprimir-resultados{
+    margin: 2% 0;
+}
