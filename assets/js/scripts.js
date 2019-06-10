@@ -408,7 +408,7 @@ function ConsultFields() {
                     $('.titulos.db').before('<label for="" class="titulos">Data de criação<input type="date" id="init" name="data_criacao" /></label>');
                     break;
                 case 'sect':
-                    $('.titulos.db').before('<label for="" class="titulos">Seção<input type="text" id="secao" name="secao" /></label>');
+                    $('.titulos.db').before('<label for="" class="titulos">Seção<input type="text" id="sect" name="secao" /></label>');
             }
             $this.addClass('is--checked');
         } else {
