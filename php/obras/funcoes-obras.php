@@ -29,6 +29,13 @@ if ($parametro == "cadastro") {
         "obs" => $_POST['item-obs']
     ];
 
+    $o = $pdo->prepare('SELECT * FROM item WHERE id_item = ?');
+    $o->bindValue(1, $obra['codigo']);
+    $o->execute();
+
+    if ($o->rowCount() > 0)
+        echo "<script>alert('Obra já cadastrada'); window.location = history.go(-1);</script>";
+
     $novoNome = array();
 
     if (isset($_FILES['item-img'])) {

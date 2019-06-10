@@ -33,16 +33,21 @@ if (isset($_POST) && !empty($_POST)) {
         $titulo = $_POST['titulo'];
         $campos[] = "titulo = '{$titulo}'";
     }
+    
     if (isset($_POST['tombo']))
         $campos[] = "tombo = " . $_POST['tombo'];
+    
     if (isset($_POST['id_item']))
         $campos[] = "id_item = " . $_POST['id_item'];
+    
     if (isset($_POST['colecao_id']))
         $campos[] = "colecao_id = " . $co['id_colecao'];
+    
     if (isset($_POST['data_criacao'])) {
         $data = $_POST['data_criacao'];
         $campos[] = "data_criacao = '{$data}'";
     }
+    
     if (isset($_POST['secao']))
         $campos[] = 'secao = ' . $se['idLocal'];
 
