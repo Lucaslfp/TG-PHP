@@ -8,6 +8,8 @@ $listar = $pdo->query("SELECT * FROM item WHERE id_item = '{$id}'");
 
 $i = $listar->fetch();
 
+$imagens = explode(' , ', $i['img']);
+
 $colecao = $pdo->query("SELECT * FROM colecao WHERE id_colecao = '{$i["colecao_id"]}'");
 $col = $colecao->fetch();
 
@@ -45,6 +47,17 @@ $col = $colecao->fetch();
                     <label for='' class="titulos">Coleção<input type="text" id="modelo" name="item-modelo" value="<?php echo $col['descricao']; ?>" /></label>
                     </label><br />
                     <label for='' class="titulos">Observações<textarea cols="100" rows="5" name="item-obs"><?php echo $i['obs']; ?></textarea></label><br />
+                    <label for='' class="titulos">Inserir imagem<input type="file" id="imagem" name="item-img[]" multiple /></label><br />
+                    <div class="imagem-obra">
+                        <?php
+                            $cont = 1;
+                            foreach($imagens as $img) {
+                                echo '<div class="area-imagem spot'.$cont.'"><img src="'.SITEBASE.'php/obras/imagens_obras/'.$img.'" /></div>';
+                                $cont++;
+                            }
+                        ?>
+                    </div>
+                    <br />
                 </form>
             </div>
         </div>
