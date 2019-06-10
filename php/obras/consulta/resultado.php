@@ -56,7 +56,7 @@ if (isset($_POST)) {
     // echo "SELECT * FROM item WHERE {$dados}";
 
     if (!$sql) {
-        // echo "<script>alert('Nenhum resultado encontrado.'); window.location.href = './../../../consulta.php'</script>";
+        echo "<script>alert('Nenhum resultado encontrado.'); window.location.href = './../../../consulta.php'</script>";
     }
 }
 

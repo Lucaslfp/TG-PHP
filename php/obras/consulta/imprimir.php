@@ -49,8 +49,6 @@ $col = $colecao->fetch();
             </div>
         </div>
 
-        <?php include_once './../../../common/footer.php'; ?>
-
         <?php include_once './../../../common/scripts.php'; ?>
     </body>
 </html>
