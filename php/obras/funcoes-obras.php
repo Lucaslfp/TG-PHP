@@ -140,7 +140,7 @@ else if ($parametro == "editar") {
         WHERE id_item = '{$id}'");
 
     if ($editar) {
-        echo "<script>alert('Dados atualizados com sucesso'); window.location.href = './consulta/resultado.php'</script>";
+        echo "<script>alert('Dados atualizados com sucesso'); window.location.href = './../../consulta.php'</script>";
     }
     else {
         echo "<script>alert('Erro ao atualizar os dados'); window.location = history.go(-1);</script>";
@@ -152,7 +152,6 @@ else if ($parametro == "excluir") {
     $del = $pdo->query("DELETE FROM item WHERE id_item = '{$id}'");
     header('Location: ./../../consulta.php');
 }
-
 
 function find_empty ($array) {
     $vazio = 'false';

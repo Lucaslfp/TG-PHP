@@ -21,7 +21,7 @@ $res = $_SESSION['resultados'];
 </head>
 
 <body class="cadastrar" onload="window.print()">
-    <div class="container" style="padding-top: 50px;">
+    <div class="container" style="margin: 50px auto 0;">
         <div class="aba-1 col-md-12" style="display: block;">
             <h3>Resultado da consulta</h3>
             <div id="cole-cadastrados">

@@ -105,7 +105,7 @@ if (isset($_POST)) {
                                 </td>
 
                                 <td class="icons">
-                                    <a href="./resultado_consulta.php?id=<?php echo $r['id_item'] ?>" class="editar_colecao">
+                                    <a href="./resultado_consulta.php?id=<?php echo $r['id_item'] ?>" target="_blank" class="editar_colecao">
                                         <img src="<?php echo SITEBASE; ?>assets/img/pencil.png" alt="edit" class="pencil" />
                                     </a>
                                 </td>

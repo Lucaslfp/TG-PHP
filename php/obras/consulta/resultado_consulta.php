@@ -86,7 +86,6 @@ $s = $secao->fetch();
                     <br />
                     
                     <input type="submit" value="Editar" class="btn-primary" />
-                    <a href="./resultado.php">Voltar</a>
                     <a href="imprimir.php?id=<?php echo $id; ?>" target="_blank" id="imprimir">Imprimir</a>
                 </form>
             </div>
