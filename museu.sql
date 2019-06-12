@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 10-Jun-2019 às 01:22
+-- Generation Time: 12-Jun-2019 às 03:54
 -- Versão do servidor: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -94,21 +94,17 @@ CREATE TABLE `item` (
   `modelo` varchar(45) DEFAULT NULL,
   `reserva` tinyint(1) NOT NULL,
   `img` varchar(200) NOT NULL,
-  `colecao_id` varchar(45) NOT NULL
+  `colecao_id` varchar(45) NOT NULL,
+  `inativo` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `item`
 --
 
-INSERT INTO `item` (`id_item`, `tombo`, `titulo`, `largura`, `altura`, `profundidade`, `cidade`, `estado`, `descricao`, `obs`, `conservacao`, `data_criacao`, `autor_descobridor`, `material`, `secao`, `tecnica`, `modelo`, `reserva`, `img`, `colecao_id`) VALUES
-('095734', 66, 'Obra teste', '30', '30', '30', 'SÃ£o Paulo', 'SP', 'histÃ³rico teste', 'ObservaÃ§Ã£o teste', 'Bem conservado', '1995-12-08', 'Rodrigo', 'Tela de pintura', '558241', 'Pintura', 'Modelo teste', 0, '', '33711'),
-('1221', 12, 'asdasd', 'asdasd', 'asda', 'asd', 'sadsa', 'RJ', 'asd', 'sadsda', 'sadsad', '0001-11-11', 'sdaas', 'dsad', '558241', 'sadsa', 'sdsa', 0, '15601208145cfd8dee8e7a0.png , 15601208145cfd8dee8ec24.png', '33711'),
-('1254', 10898, 'Roma', '200', '100', '100', 'BraganÃ§a Paulista', 'SP', 'Lindo quadro sobre a Roma antiga', 'FrÃ¡gil', 'Excelente', '2018-06-09', 'Lucas', 'Tecido', '558241', 'Suave', 'Modelo', 0, '15601187595cfd85e747685.png', '33711'),
-('313', 12, 'sdadsa', '12', '12', '12', 'sadasd', 'PE', 'dsa', 'dsaasd', 'sdasda', '1111-11-11', 'dsadsa', 'sa', '558241', 'dsaas', 'saddsa', 0, '', '33711'),
-('443242', 121221, 'dassd', 'dassd', 'sasd', 'asds', 'sasdsda', 'PB', 'ddasdsdsdad', 'sdasdds', 'asddsa', '1111-11-11', 'dsasda', 'sdsda', '558241', 'sdasda', 'sdasda', 0, '', '33711'),
-('78678dsa', 12, 'teste', '112', '12', '12', 'sdaas', 'PE', '1ds', 'sd', 'dsas', '0111-11-11', 'dsa', 'sda', '558241', 'dsa', 'dsa', 0, '15601191055cfd87415ee9d.png', '33711'),
-('asasdsad', 122121, 'asdsad', 'adssadsad', 'sadsad', 'asd', 'sadsad', 'AC', 'dsasad', 'sdasda', 'sadsad', '0000-00-00', 'sadasd', 'sdasd', '558241', 'sadsda', 'sadsda', 0, '15601209365cfd8e68cda4f.png , 15601209365cfd8e68cdf1d.png', '33711');
+INSERT INTO `item` (`id_item`, `tombo`, `titulo`, `largura`, `altura`, `profundidade`, `cidade`, `estado`, `descricao`, `obs`, `conservacao`, `data_criacao`, `autor_descobridor`, `material`, `secao`, `tecnica`, `modelo`, `reserva`, `img`, `colecao_id`, `inativo`) VALUES
+('adsasd', 12, 'asdas', 'sadsad', 'dasas', 'sadsda', 'sadsa', 'PI', 'dsa', 'dsadsa', 'adssda', '1111-11-11', 'dsaas', 'sdasda', '558241', 'sadsda', 'dsasad', 0, '15602011245cfec7a43646d.png', '33711', 0),
+('dasds', 112, 'dsasd', '111', '111', '11', 'sadsa', 'PI', 'sadssd', 'sasad', 'asdsad', '0111-11-11', 'assda', 'sdasd', '558241', 'sdas', 'sadsa', 0, '15603039515d00594fd1a79.jpg', '33711', 0);
 
 -- --------------------------------------------------------
 
