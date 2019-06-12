@@ -35,9 +35,12 @@ $listar = $pdo->query('SELECT * FROM colecao');
                             <label for="checks">Seção</label><input class="checkboxes" type="checkbox" id="sect" name="check">
                         </div>
                         <label for='' class="titulos db"></label>
-                        <input type="submit" id="busc" name="item-buscar" value="Buscar">
+                        <input type="submit" name="item-buscar" class="btn btn-success" value="Buscar">
                         <a href="./php/obras/consulta/resultados_todos.php" class="btn btn-info">Buscar todos</a>
-                        <span id="cancelar-6"><a href="home.php">Cancelar</a></span>
+                        
+                        <a class="btn btn-danger float-right" href="home.php" style="margin: 0 0 0 10px;">Cancelar</a>
+                        <a href="./php/obras/consulta/inativos.php" class="btn btn-primary float-right">Ver obras inativas</a>
+
                     </form>
                 </div>
             </div>

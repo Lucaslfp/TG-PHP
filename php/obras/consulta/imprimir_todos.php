@@ -7,7 +7,7 @@ if (isset($_SESSION)) {
         header('Location: ./../../../login.php');
 }
 
-$sql = $pdo->query("SELECT * FROM item");
+$sql = $pdo->query("SELECT * FROM item WHERE inativo = 0");
 
 ?>
 <html>

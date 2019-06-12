@@ -53,9 +53,9 @@ if (isset($_POST) && !empty($_POST)) {
 
     $dados = implode(" AND ", $campos);
 
-    $sql = $pdo->query("SELECT * FROM item WHERE {$dados}");
+    $sql = $pdo->query("SELECT * FROM item WHERE ({$dados}) AND inativo = 0");
 
-    $sql2 = $pdo->query("SELECT * FROM item WHERE {$dados}");
+    $sql2 = $pdo->query("SELECT * FROM item WHERE ({$dados}) AND inativo = 0");
     
     // echo "SELECT * FROM item WHERE {$dados}";
 

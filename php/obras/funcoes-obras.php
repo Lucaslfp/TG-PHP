@@ -182,8 +182,15 @@ else if ($parametro == "editar") {
 
 else if ($parametro == "excluir") {
     $id = addslashes($_GET['id']);
-    $del = $pdo->query("DELETE FROM item WHERE id_item = '{$id}'");
+    $del = $pdo->query("UPDATE item SET inativo = 1 WHERE id_item = '{$id}'");
     header('Location: ./../../consulta.php');
+}
+
+else if ($parametro == "ativar") {
+    $id = $_GET['id'];
+
+    $at = $pdo->query("UPDATE item SET inativo = 0 WHERE id_item = '{$id}'");
+    echo "<script>alert('Obra ativada com sucesso'); window.location.href = './consulta/inativos.php'</script>";
 }
 
 function find_empty ($array) {
