@@ -44,8 +44,7 @@ if ($parametro == "cadastro") {
 
         for ($i = 0; $i < $numArquivo; $i++) {
             $obra_tmp = $imagem['tmp_name'][$i];
-            $nome = $imagem[ 'name' ][$i];
-        
+            $nome = $imagem[ 'name' ][$i];            
             $extensao = pathinfo ($nome, PATHINFO_EXTENSION);  
             $extensao = strtolower ($extensao);
         
@@ -53,6 +52,8 @@ if ($parametro == "cadastro") {
                 $novoNome[] = uniqid ( time () ) . '.' . $extensao;
                 $destino = 'imagens_obras/' . $novoNome[$i];
                 move_uploaded_file($obra_tmp, $destino);
+                $data = file_get_contents($destino);
+                $img64 = 'data:image/' . $extensao . ';base64,' . base64_encode($data);
             }
 
             else {
@@ -81,7 +82,7 @@ if ($parametro == "cadastro") {
             "secao = '{$obra["secao"]}', ".
             "tecnica = '{$obra["tecnica"]}'," .
             "modelo = '{$obra["modelo"]}'," .
-            "img = '{$img_obra}'," .
+            "img = '{$img64}'," .
             "colecao_id = '{$obra["colecao"]}'"
         );
 
@@ -121,7 +122,7 @@ else if ($parametro == "editar") {
         } 
     }
 
-    $img_obra = implode(" , ", $novoNome);
+    $img_obra = implode(" | ", $novoNome);
 
     $editar = '';
 
